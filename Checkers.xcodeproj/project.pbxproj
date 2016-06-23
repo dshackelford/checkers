@@ -9,12 +9,22 @@
 /* Begin PBXBuildFile section */
 		692168441D11177A00F9910C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168431D11177A00F9910C /* main.m */; };
 		692168471D11177A00F9910C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168461D11177A00F9910C /* AppDelegate.m */; };
-		6921684A1D11177A00F9910C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168491D11177A00F9910C /* ViewController.m */; };
 		6921684D1D11177A00F9910C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6921684B1D11177A00F9910C /* Main.storyboard */; };
 		6921684F1D11177A00F9910C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6921684E1D11177A00F9910C /* Assets.xcassets */; };
 		692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692168501D11177A00F9910C /* LaunchScreen.storyboard */; };
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
+		69ABFAB31D1B8FE400BE9C68 /* ScoreBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */; };
+		69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */; };
+		69ABFABA1D1BB0D200BE9C68 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB91D1BB0D200BE9C68 /* SettingsViewController.m */; };
+		69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */; };
+		69ABFABF1D1BB0EC00BE9C68 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABE1D1BB0EC00BE9C68 /* AboutViewController.m */; };
+		69ABFAC41D1C437900BE9C68 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAC31D1C437900BE9C68 /* Inventory.m */; };
+		69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0C75F1D151B190006BC1E /* PlayViewController.m */; };
+		69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0C7631D151B9E0006BC1E /* HomeViewController.m */; };
+		69D15C7D1D18FC7D007DA6AA /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C7C1D18FC7D007DA6AA /* Grid.m */; };
+		69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C7E1D18FC82007DA6AA /* Tile.m */; };
+		69D15C831D18FEFB007DA6AA /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C821D18FEFB007DA6AA /* Board.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +49,6 @@
 		692168431D11177A00F9910C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		692168451D11177A00F9910C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		692168461D11177A00F9910C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		692168481D11177A00F9910C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		692168491D11177A00F9910C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6921684C1D11177A00F9910C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6921684E1D11177A00F9910C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		692168511D11177A00F9910C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +59,28 @@
 		692168631D11177A00F9910C /* CheckersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168671D11177A00F9910C /* CheckersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckersUITests.m; sourceTree = "<group>"; };
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69ABFAB11D1B8FDC00BE9C68 /* ScoreBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreBoard.h; sourceTree = "<group>"; };
+		69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoard.m; sourceTree = "<group>"; };
+		69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
+		69ABFAB61D1B960000BE9C68 /* ScoreTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreTile.h; sourceTree = "<group>"; };
+		69ABFAB81D1BB0C900BE9C68 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
+		69ABFAB91D1BB0D200BE9C68 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
+		69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		69ABFABD1D1BB0E400BE9C68 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		69ABFABE1D1BB0EC00BE9C68 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		69ABFAC01D1BB0F200BE9C68 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		69ABFAC21D1C437200BE9C68 /* Inventory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
+		69ABFAC31D1C437900BE9C68 /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
+		69D0C75F1D151B190006BC1E /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		69D0C7611D151B230006BC1E /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		69D0C7621D151B960006BC1E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		69D0C7631D151B9E0006BC1E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		69D15C7B1D18FC77007DA6AA /* Grid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		69D15C7C1D18FC7D007DA6AA /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
+		69D15C7E1D18FC82007DA6AA /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
+		69D15C801D18FC87007DA6AA /* Tile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		69D15C811D18FEF6007DA6AA /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		69D15C821D18FEFB007DA6AA /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +133,8 @@
 			children = (
 				692168451D11177A00F9910C /* AppDelegate.h */,
 				692168461D11177A00F9910C /* AppDelegate.m */,
-				692168481D11177A00F9910C /* ViewController.h */,
-				692168491D11177A00F9910C /* ViewController.m */,
+				69ABFAC11D1BB0F700BE9C68 /* ViewControllers */,
+				69D15C841D18FF06007DA6AA /* Board */,
 				6921684B1D11177A00F9910C /* Main.storyboard */,
 				6921684E1D11177A00F9910C /* Assets.xcassets */,
 				692168501D11177A00F9910C /* LaunchScreen.storyboard */,
@@ -138,6 +168,42 @@
 				692168691D11177A00F9910C /* Info.plist */,
 			);
 			path = CheckersUITests;
+			sourceTree = "<group>";
+		};
+		69ABFAC11D1BB0F700BE9C68 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				69D0C7621D151B960006BC1E /* HomeViewController.h */,
+				69D0C7631D151B9E0006BC1E /* HomeViewController.m */,
+				69D0C7611D151B230006BC1E /* PlayViewController.h */,
+				69D0C75F1D151B190006BC1E /* PlayViewController.m */,
+				69ABFAB81D1BB0C900BE9C68 /* SettingsViewController.h */,
+				69ABFAB91D1BB0D200BE9C68 /* SettingsViewController.m */,
+				69ABFABD1D1BB0E400BE9C68 /* HelpViewController.h */,
+				69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */,
+				69ABFAC01D1BB0F200BE9C68 /* AboutViewController.h */,
+				69ABFABE1D1BB0EC00BE9C68 /* AboutViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		69D15C841D18FF06007DA6AA /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				69D15C811D18FEF6007DA6AA /* Board.h */,
+				69D15C821D18FEFB007DA6AA /* Board.m */,
+				69D15C7B1D18FC77007DA6AA /* Grid.h */,
+				69D15C7C1D18FC7D007DA6AA /* Grid.m */,
+				69D15C801D18FC87007DA6AA /* Tile.h */,
+				69D15C7E1D18FC82007DA6AA /* Tile.m */,
+				69ABFAB61D1B960000BE9C68 /* ScoreTile.h */,
+				69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */,
+				69ABFAB11D1B8FDC00BE9C68 /* ScoreBoard.h */,
+				69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */,
+				69ABFAC21D1C437200BE9C68 /* Inventory.h */,
+				69ABFAC31D1C437900BE9C68 /* Inventory.m */,
+			);
+			name = Board;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +336,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6921684A1D11177A00F9910C /* ViewController.m in Sources */,
+				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
+				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
+				69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */,
+				69D15C7D1D18FC7D007DA6AA /* Grid.m in Sources */,
+				69D15C831D18FEFB007DA6AA /* Board.m in Sources */,
+				69ABFAB31D1B8FE400BE9C68 /* ScoreBoard.m in Sources */,
+				69ABFABF1D1BB0EC00BE9C68 /* AboutViewController.m in Sources */,
+				69ABFAC41D1C437900BE9C68 /* Inventory.m in Sources */,
 				692168471D11177A00F9910C /* AppDelegate.m in Sources */,
+				69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */,
+				69ABFABA1D1BB0D200BE9C68 /* SettingsViewController.m in Sources */,
+				69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */,
 				692168441D11177A00F9910C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +572,7 @@
 				6921686E1D11177A00F9910C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6921686F1D11177A00F9910C /* Build configuration list for PBXNativeTarget "CheckersTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +581,7 @@
 				692168711D11177A00F9910C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		692168721D11177A00F9910C /* Build configuration list for PBXNativeTarget "CheckersUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +590,7 @@
 				692168741D11177A00F9910C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
