@@ -14,6 +14,7 @@
 		692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692168501D11177A00F9910C /* LaunchScreen.storyboard */; };
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
+		6951BD331D21F0C000EE4FA8 /* ComputerMover.m in Sources */ = {isa = PBXBuildFile; fileRef = 6951BD321D21F0C000EE4FA8 /* ComputerMover.m */; };
 		69ABFAB31D1B8FE400BE9C68 /* ScoreBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */; };
 		69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */; };
 		69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */; };
@@ -59,6 +60,8 @@
 		692168631D11177A00F9910C /* CheckersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168671D11177A00F9910C /* CheckersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckersUITests.m; sourceTree = "<group>"; };
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6951BD321D21F0C000EE4FA8 /* ComputerMover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComputerMover.m; sourceTree = "<group>"; };
+		6951BD341D21F0C700EE4FA8 /* ComputerMover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComputerMover.h; sourceTree = "<group>"; };
 		69ABFAB11D1B8FDC00BE9C68 /* ScoreBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreBoard.h; sourceTree = "<group>"; };
 		69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoard.m; sourceTree = "<group>"; };
 		69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 			children = (
 				69D0C7621D151B960006BC1E /* HomeViewController.h */,
 				69D0C7631D151B9E0006BC1E /* HomeViewController.m */,
+				6951BD321D21F0C000EE4FA8 /* ComputerMover.m */,
+				6951BD341D21F0C700EE4FA8 /* ComputerMover.h */,
 				69D0C7611D151B230006BC1E /* PlayViewController.h */,
 				69D0C75F1D151B190006BC1E /* PlayViewController.m */,
 				69F8D38F1D21AC1B0012F33C /* SettingsViewController.h */,
@@ -340,6 +345,7 @@
 				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
 				69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */,
 				69D15C7D1D18FC7D007DA6AA /* Grid.m in Sources */,
+				6951BD331D21F0C000EE4FA8 /* ComputerMover.m in Sources */,
 				69D15C831D18FEFB007DA6AA /* Board.m in Sources */,
 				69ABFAB31D1B8FE400BE9C68 /* ScoreBoard.m in Sources */,
 				69ABFABF1D1BB0EC00BE9C68 /* AboutViewController.m in Sources */,
