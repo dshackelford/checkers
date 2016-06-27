@@ -22,7 +22,6 @@
     return self;
 }
 
-
 -(CGRect)determineBoundsOfGrid:(CGSize)screenSizeInit
 {
     double wideGap = 70;
@@ -34,6 +33,19 @@
     CGRect aRect = CGRectMake(screenSizeInit.width/2 - wide/2, screenSizeInit.height/2 - tall/2, wide, tall);
     
     return aRect;
+}
+
+-(CGSize)findSizeOfEachSquare:(CGSize)sizeInit inView:(UIView*)viewInit
+{
+    double numOfBoxes = sizeInit.width*sizeInit.height;
+    
+    double viewArea = viewInit.bounds.size.width*viewInit.bounds.size.height;
+    
+    double boxArea  = viewArea/numOfBoxes;
+    
+    CGSize boxSize = CGSizeMake(sqrt(boxArea), sqrt(boxArea));
+    
+    return boxSize;
 }
 
 -(void)drawGridInView:(UIView*)viewInit
@@ -55,25 +67,11 @@
             
             Tile* aTile = [[Tile alloc] initWithSize:squareSize atPoint:aPoint inView:gridView];
             
-            [aTile drawTileToView];
-            
             [arrayOfTiles addObject:aTile];
         }
     }
 }
 
--(CGSize)findSizeOfEachSquare:(CGSize)sizeInit inView:(UIView*)viewInit
-{
-    double numOfBoxes = sizeInit.width*sizeInit.height;
-    
-    double viewArea = viewInit.bounds.size.width*viewInit.bounds.size.height;
-    
-    double boxArea  = viewArea/numOfBoxes;
-    
-    CGSize boxSize = CGSizeMake(sqrt(boxArea), sqrt(boxArea));
-    
-    return boxSize;
-}
 
 -(NSMutableArray*)getTileArray
 {

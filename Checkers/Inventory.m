@@ -16,9 +16,15 @@
     self = [super init];
     
     size = CGSizeMake(50, 4*50);
-    origin = CGPointMake([gridInit getRect].origin.x + [gridInit getSize].width, [gridInit getRect].origin.y + [gridInit getSize].height - size.height);
+    origin = CGPointMake([gridInit getRect].origin.x + [gridInit getRect].size.width, [gridInit getRect].origin.y + [gridInit getRect].size.height - size.height);
     
     bounds = CGRectMake(origin.x, origin.y, size.width, size.height);
+    
+    
+    circleTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y) inView:viewInit];
+    triangleTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y + size.height/4) inView:viewInit];
+    hexagonTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y + 2*size.height/4) inView:viewInit];
+    crossTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y + 3*size.height/4) inView:viewInit];
     
     return self;
 }
@@ -28,9 +34,14 @@
     self = [super init];
     
     size = CGSizeMake(50, 4*50);
-    origin = CGPointMake([gridInit getRect].origin.x - size.width, [gridInit getRect].origin.y);
+    origin = CGPointMake([gridInit getRect].origin.x - size.width - 10, [gridInit getRect].origin.y -  10);
     
     bounds = CGRectMake(origin.x, origin.y, size.width, size.height);
+    
+    circleTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y) inView:viewInit];
+    triangleTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y + size.height/4) inView:viewInit];
+    hexagonTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y + 2*size.height/4) inView:viewInit];
+    crossTile = [[Tile alloc] initWithSize:CGSizeMake(size.width, size.height/4) atPoint:CGPointMake(origin.x, origin.y + 3*size.height/4) inView:viewInit];
     
     return self;
 }

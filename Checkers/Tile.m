@@ -19,6 +19,8 @@
     size = sizeInit;
     bounds = CGRectMake(origin.x, origin.y, size.width, size.height);
     gridView = viewInit;
+    
+    [self drawTileToView];
     return self;
 }
 

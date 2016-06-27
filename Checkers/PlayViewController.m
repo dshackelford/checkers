@@ -53,6 +53,7 @@
         
         CGRect arect = [aTile getRect];
         CGRect gridRect = [theGrid getRect];
+        
         arect.origin.x = arect.origin.x + gridRect.origin.x;
         arect.origin.y = arect.origin.y + gridRect.origin.y;
         
@@ -60,10 +61,18 @@
         {
             NSLog(@"%d",i);
             [aTile fillTile];
-//            [aTile drawCircle];
+            [self.view removeGestureRecognizer:singleTap];
+            [self computerMove];
         }
     }
-    
+}
+
+-(void)computerMove
+{
+    for (int i = 0; i < [[theGrid getTileArray] count]; i++)
+    {
+        
+    }
 }
 
 
