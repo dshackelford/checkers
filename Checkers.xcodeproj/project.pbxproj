@@ -16,7 +16,6 @@
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
 		69ABFAB31D1B8FE400BE9C68 /* ScoreBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */; };
 		69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */; };
-		69ABFABA1D1BB0D200BE9C68 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB91D1BB0D200BE9C68 /* SettingsViewController.m */; };
 		69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */; };
 		69ABFABF1D1BB0EC00BE9C68 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABE1D1BB0EC00BE9C68 /* AboutViewController.m */; };
 		69ABFAC41D1C437900BE9C68 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAC31D1C437900BE9C68 /* Inventory.m */; };
@@ -25,6 +24,7 @@
 		69D15C7D1D18FC7D007DA6AA /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C7C1D18FC7D007DA6AA /* Grid.m */; };
 		69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C7E1D18FC82007DA6AA /* Tile.m */; };
 		69D15C831D18FEFB007DA6AA /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C821D18FEFB007DA6AA /* Board.m */; };
+		69F8D3911D21AC1B0012F33C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F8D3901D21AC1B0012F33C /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,6 @@
 		69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoard.m; sourceTree = "<group>"; };
 		69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
 		69ABFAB61D1B960000BE9C68 /* ScoreTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreTile.h; sourceTree = "<group>"; };
-		69ABFAB81D1BB0C900BE9C68 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
-		69ABFAB91D1BB0D200BE9C68 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 		69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		69ABFABD1D1BB0E400BE9C68 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		69ABFABE1D1BB0EC00BE9C68 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
@@ -81,6 +79,8 @@
 		69D15C801D18FC87007DA6AA /* Tile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		69D15C811D18FEF6007DA6AA /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		69D15C821D18FEFB007DA6AA /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		69F8D38F1D21AC1B0012F33C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		69F8D3901D21AC1B0012F33C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,8 +177,8 @@
 				69D0C7631D151B9E0006BC1E /* HomeViewController.m */,
 				69D0C7611D151B230006BC1E /* PlayViewController.h */,
 				69D0C75F1D151B190006BC1E /* PlayViewController.m */,
-				69ABFAB81D1BB0C900BE9C68 /* SettingsViewController.h */,
-				69ABFAB91D1BB0D200BE9C68 /* SettingsViewController.m */,
+				69F8D38F1D21AC1B0012F33C /* SettingsViewController.h */,
+				69F8D3901D21AC1B0012F33C /* SettingsViewController.m */,
 				69ABFABD1D1BB0E400BE9C68 /* HelpViewController.h */,
 				69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */,
 				69ABFAC01D1BB0F200BE9C68 /* AboutViewController.h */,
@@ -346,9 +346,9 @@
 				69ABFAC41D1C437900BE9C68 /* Inventory.m in Sources */,
 				692168471D11177A00F9910C /* AppDelegate.m in Sources */,
 				69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */,
-				69ABFABA1D1BB0D200BE9C68 /* SettingsViewController.m in Sources */,
 				69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */,
 				692168441D11177A00F9910C /* main.m in Sources */,
+				69F8D3911D21AC1B0012F33C /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
