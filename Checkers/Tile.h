@@ -12,10 +12,13 @@
 {
     UIView* gridView;
     UIImageView* bezierImageView;
+    
+    double affiliation;
 }
 
 -(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit inView:(UIView*)viewInit;
 -(void)drawTileToView;
 -(void)fillTile;
 -(void)drawCircle;
+-(double)getAffiliation;
 @end

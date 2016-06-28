@@ -71,7 +71,12 @@
 {
     for (int i = 0; i < [[theGrid getTileArray] count]; i++)
     {
+        Tile* aTile = [[theGrid getTileArray] objectAtIndex:i];
         
+        if ([aTile getAffiliation] == 1)
+        {
+            
+        }
     }
 }
 

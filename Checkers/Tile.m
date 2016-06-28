@@ -19,6 +19,7 @@
     size = sizeInit;
     bounds = CGRectMake(origin.x, origin.y, size.width, size.height);
     gridView = viewInit;
+    affiliation = 0;
     
     [self drawTileToView];
     return self;
@@ -82,6 +83,8 @@
     
     [gridView addSubview:bezierImageView];
     
+    affiliation = 1;
+    
 }
 
 -(void)drawCircle
@@ -112,6 +115,10 @@
     [gridView addSubview:circleImageView];
 }
 
+-(double)getAffiliation
+{
+    return affiliation;
+}
 
 
 @end

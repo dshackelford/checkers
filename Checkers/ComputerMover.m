@@ -11,6 +11,9 @@
 
 @implementation ComputerMover
 
-
+-(void)something
+{
+    //i thinkg the computer will be called hal. 
+}
 
 @end
