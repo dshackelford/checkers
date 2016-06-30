@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6914CFF51D23767600185EC9 /* TheGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6914CFF41D23767600185EC9 /* TheGridView.xib */; };
+		6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914CFF61D23768A00185EC9 /* TheGridView.m */; };
+		6914CFFB1D23962500185EC9 /* ViewMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914CFFA1D23962500185EC9 /* ViewMaster.m */; };
 		692168441D11177A00F9910C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168431D11177A00F9910C /* main.m */; };
 		692168471D11177A00F9910C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168461D11177A00F9910C /* AppDelegate.m */; };
 		6921684D1D11177A00F9910C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6921684B1D11177A00F9910C /* Main.storyboard */; };
@@ -46,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6914CFF41D23767600185EC9 /* TheGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheGridView.xib; sourceTree = "<group>"; };
+		6914CFF61D23768A00185EC9 /* TheGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheGridView.m; sourceTree = "<group>"; };
+		6914CFF81D23769000185EC9 /* TheGridView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheGridView.h; sourceTree = "<group>"; };
+		6914CFF91D23961F00185EC9 /* ViewMaster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewMaster.h; path = ../ViewMaster.h; sourceTree = "<group>"; };
+		6914CFFA1D23962500185EC9 /* ViewMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewMaster.m; path = ../ViewMaster.m; sourceTree = "<group>"; };
 		6921683F1D11177A00F9910C /* Checkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168431D11177A00F9910C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		692168451D11177A00F9910C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,6 +147,11 @@
 				69ABFAC11D1BB0F700BE9C68 /* ViewControllers */,
 				69D15C841D18FF06007DA6AA /* Board */,
 				6921684B1D11177A00F9910C /* Main.storyboard */,
+				6914CFF41D23767600185EC9 /* TheGridView.xib */,
+				6914CFF81D23769000185EC9 /* TheGridView.h */,
+				6914CFF61D23768A00185EC9 /* TheGridView.m */,
+				6914CFF91D23961F00185EC9 /* ViewMaster.h */,
+				6914CFFA1D23962500185EC9 /* ViewMaster.m */,
 				6921684E1D11177A00F9910C /* Assets.xcassets */,
 				692168501D11177A00F9910C /* LaunchScreen.storyboard */,
 				692168531D11177A00F9910C /* Info.plist */,
@@ -317,6 +330,7 @@
 				692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */,
 				6921684F1D11177A00F9910C /* Assets.xcassets in Resources */,
 				6921684D1D11177A00F9910C /* Main.storyboard in Resources */,
+				6914CFF51D23767600185EC9 /* TheGridView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
+				6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */,
 				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
 				69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */,
 				69D15C7D1D18FC7D007DA6AA /* Grid.m in Sources */,
@@ -354,6 +369,7 @@
 				69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */,
 				69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */,
 				692168441D11177A00F9910C /* main.m in Sources */,
+				6914CFFB1D23962500185EC9 /* ViewMaster.m in Sources */,
 				69F8D3911D21AC1B0012F33C /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

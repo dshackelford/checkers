@@ -18,17 +18,23 @@
     screenSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     
     [self establishGestures];
-    
-    theGrid = [[Grid alloc] initWithSize:CGSizeMake(6,12) inScreenSized:screenSize];
-    
-    [theGrid drawGridInView:self.view];
-    
-    theScoreBoard = [[ScoreBoard alloc] initWithGrid:theGrid inView:self.view];
-    
-    userInven = [[Inventory alloc] initUserInventoryWithGrid:theGrid inView:self.view];
-    compInven = [[Inventory alloc] initCompInventoryWithGrid:theGrid inView:self.view];
-    
-    [self establishButtons];
+
+    CGSize buffer = CGSizeMake(50, 50);
+    gridView = [[TheGridView alloc] initWithFrame:CGRectMake(buffer.width, buffer.height, screenSize.width - 2*buffer.width, screenSize.height - 2*buffer.height)];
+    [self.view addSubview:gridView];
+
+    [gridView drawGridOfSize:CGSizeMake(10,12)];
+//
+//    
+//    CGRect aRect = gridView.frame;
+//    NSLog(@"origin x:%f y:%f size width:%f height:%f",aRect.origin.x,aRect.origin.y,aRect.size.width,aRect.size.height);
+//
+//    theScoreBoard = [[ScoreBoard alloc] initWithGrid:theGrid inView:self.view];
+//    
+//    userInven = [[Inventory alloc] initUserInventoryWithGrid:theGrid inView:self.view];
+//    compInven = [[Inventory alloc] initCompInventoryWithGrid:theGrid inView:self.view];
+//    
+//    [self establishButtons];
     
 }
 
@@ -47,12 +53,12 @@
     
     NSLog(@"%f,%f",touchPoint.x,touchPoint.y);
     
-    for (int i = 0; i < [[theGrid getTileArray] count]; i++)
+    for (int i = 0; i < [[gridView getTileArray] count]; i++)
     {
-        Tile* aTile = [[theGrid getTileArray] objectAtIndex:i];
+        Tile* aTile = [[gridView getTileArray] objectAtIndex:i];
         
         CGRect arect = [aTile getRect];
-        CGRect gridRect = [theGrid getRect];
+        CGRect gridRect = gridView.frame;
         
         arect.origin.x = arect.origin.x + gridRect.origin.x;
         arect.origin.y = arect.origin.y + gridRect.origin.y;
@@ -60,9 +66,9 @@
         if(CGRectContainsPoint(arect, touchPoint) )
         {
             NSLog(@"%d",i);
-            [aTile fillTile];
-            [self.view removeGestureRecognizer:singleTap];
-            [self computerMove];
+//            [aTile fillTile];
+//            [self.view removeGestureRecognizer:singleTap];
+//            [self computerMove];
         }
     }
 }

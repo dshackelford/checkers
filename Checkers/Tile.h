@@ -12,7 +12,7 @@
 {
     UIView* gridView;
     UIImageView* bezierImageView;
-    
+    double linewidth;
     double affiliation;
 }
 

@@ -12,6 +12,8 @@
 #import "ScoreBoard.h"
 #import "Inventory.h"
 
+#import "TheGridView.h"
+
 @interface PlayViewController : UIViewController
 {
     CGSize screenSize;
@@ -22,6 +24,9 @@
     ScoreBoard* theScoreBoard;
     Inventory* userInven;
     Inventory* compInven;
+    
+    
+    TheGridView* gridView;
     
     IBOutlet UIButton* homeButton;
     IBOutlet UIButton* helpButton;

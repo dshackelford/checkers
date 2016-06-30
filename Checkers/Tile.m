@@ -20,23 +20,24 @@
     bounds = CGRectMake(origin.x, origin.y, size.width, size.height);
     gridView = viewInit;
     affiliation = 0;
-    
+    linewidth = 4;
     [self drawTileToView];
+    
     return self;
 }
 
 -(void)drawTileToView
 {
-    //the inset by 5 and 5 is to account for the line width
-    UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(5, 5, size.width, size.height)];
     
-//    UIGraphicsBeginImageContext(CGSizeMake(100, 100));
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(100, 100), NO, 0.0);
+    //the inset by 5 and 5 is to account for the line width
+    UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(origin.x, origin.y, size.width, size.height)];
+    
+    UIGraphicsBeginImageContextWithOptions(gridView.frame.size, NO, 0.0);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    tilePath.lineWidth = 4;
+    tilePath.lineWidth = linewidth;
     
     [tilePath stroke];
     
@@ -47,7 +48,7 @@
      bezierImageView = [[UIImageView alloc]initWithImage:bezierImage];
     
     //the center is offset to accomodate the actual origin which will be used later for touch detection
-    bezierImageView.center = CGPointMake(origin.x + size.width, origin.y + size.height);
+//    bezierImageView.center = CGPointMake(origin.x,origin.y);
     
     [gridView addSubview:bezierImageView];
 }
