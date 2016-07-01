@@ -16,9 +16,11 @@
     double affiliation;
 }
 
--(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit inView:(UIView*)viewInit;
+-(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit LineWidth:(double)lineWidthInit inView:(UIView*)viewInit;
 -(void)drawTileToView;
 -(void)fillTile;
 -(void)drawCircle;
 -(double)getAffiliation;
+-(double)getLineWidth;
+-(void)setAffiliation:(double)affiliationInit;
 @end

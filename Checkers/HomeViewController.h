@@ -12,11 +12,9 @@
 @interface HomeViewController : UIViewController
 {
     IBOutlet UIButton* playButton;
-//    IBOutlet UIButton* aboutButton;
-//    IBOutlet UIButton* settingsButton;
-//    IBOutlet UIButton* helpButton;
-    
-//    UIViewController* PlayViewController;
+    IBOutlet UIButton* aboutButton;
+    IBOutlet UIButton* settingsButton;
+    IBOutlet UIButton* helpButton;
     
     IBOutlet UILabel* atitleLabel;
     

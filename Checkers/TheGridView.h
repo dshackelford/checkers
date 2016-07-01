@@ -18,5 +18,6 @@
 
 -(void)drawGridOfSize:(CGSize)sizeInit;
 -(NSMutableArray*)getTileArray;
+-(CGSize)getGridSize;
 
 @end

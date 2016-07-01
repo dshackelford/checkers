@@ -48,29 +48,29 @@
     return boxSize;
 }
 
--(void)drawGridInView:(UIView*)viewInit
-{
-    arrayOfTiles = [[NSMutableArray alloc] init];
-    
-    UIView* gridView = [[UIView alloc] initWithFrame:bounds];
-    
-    [viewInit addSubview:gridView];
-    
-    CGSize squareSize = [self findSizeOfEachSquare:gridSize inView:gridView];
-    
-    //GRAB THE START OF A ROW
-    for (int j = 0; j < gridSize.height; j++)
-    {
-        for (int i = 0; i < gridSize.width; i++)
-        {
-            CGPoint aPoint = CGPointMake(i*squareSize.width, j*squareSize.height);
-            
-            Tile* aTile = [[Tile alloc] initWithSize:squareSize atPoint:aPoint inView:gridView];
-            
-            [arrayOfTiles addObject:aTile];
-        }
-    }
-}
+//-(void)drawGridInView:(UIView*)viewInit
+//{
+//    arrayOfTiles = [[NSMutableArray alloc] init];
+//    
+//    UIView* gridView = [[UIView alloc] initWithFrame:bounds];
+//    
+//    [viewInit addSubview:gridView];
+//    
+//    CGSize squareSize = [self findSizeOfEachSquare:gridSize inView:gridView];
+//    
+//    //GRAB THE START OF A ROW
+//    for (int j = 0; j < gridSize.height; j++)
+//    {
+//        for (int i = 0; i < gridSize.width; i++)
+//        {
+//            CGPoint aPoint = CGPointMake(i*squareSize.width, j*squareSize.height);
+//            
+//            Tile* aTile = [[Tile alloc] initWithSize:squareSize atPoint:aPoint inView:gridView];
+//            
+//            [arrayOfTiles addObject:aTile];
+//        }
+//    }
+//}
 
 
 -(NSMutableArray*)getTileArray

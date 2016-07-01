@@ -11,42 +11,54 @@
 
 @implementation PlayViewController
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(HalMoved:) name:@"HalMoved" object:nil];
+    
     screenSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     
     [self establishGestures];
-
-    CGSize buffer = CGSizeMake(50, 50);
-    gridView = [[TheGridView alloc] initWithFrame:CGRectMake(buffer.width, buffer.height, screenSize.width - 2*buffer.width, screenSize.height - 2*buffer.height)];
-    [self.view addSubview:gridView];
-
-    [gridView drawGridOfSize:CGSizeMake(10,12)];
-//
-//    
-//    CGRect aRect = gridView.frame;
-//    NSLog(@"origin x:%f y:%f size width:%f height:%f",aRect.origin.x,aRect.origin.y,aRect.size.width,aRect.size.height);
-//
-//    theScoreBoard = [[ScoreBoard alloc] initWithGrid:theGrid inView:self.view];
-//    
-//    userInven = [[Inventory alloc] initUserInventoryWithGrid:theGrid inView:self.view];
-//    compInven = [[Inventory alloc] initCompInventoryWithGrid:theGrid inView:self.view];
-//    
-//    [self establishButtons];
     
+    CGSize border = CGSizeMake(70, 70);
+    gridView = [[TheGridView alloc] initWithFrame:CGRectMake(border.width, border.height, screenSize.width - 2*border.width, screenSize.height - 2*border.height)];
+    [self.view addSubview:gridView];
+    
+    //MAKE GRID OF SOME SIZE (WIDTH X HEIGHT)
+    [gridView drawGridOfSize:CGSizeMake(10,20)];
+    
+    tileArray = [[NSMutableArray alloc] initWithArray:[gridView getTileArray]];
+    
+    //SET HOME BASE FOR PLAYER
+    [[tileArray objectAtIndex:[gridView getGridSize].width/2] setAffiliation:1];
+    [[tileArray objectAtIndex:[gridView getGridSize].width/2] fillTile];
+    
+    //SET HOME BASE FOR HAL
+    [[tileArray objectAtIndex:[tileArray count] - [gridView getGridSize].width/2] setAffiliation:2];
+    [[tileArray objectAtIndex:[tileArray count] - [gridView getGridSize].width/2] fillTile];
+    
+    //load HAL into gameplay
+    hal = [[Hal alloc] initWithGrid:gridView andFirstPieceIndex:[tileArray count] - [gridView getGridSize].width/2];
 }
 
 
--(void)establishButtons
+
+-(void)HalMoved:(NSNotification*)notification
 {
-    [homeButton setTitle:@"Home" forState:UIControlStateNormal];
-    homeButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-    homeButton.frame = CGRectMake(10, 10.0, 200, 100);
-    homeButton.center = CGPointMake(10, 10);//this doesn't do shit...
+    [self.view addGestureRecognizer:singleTap];
+    
+    //stop loading animation
+    //notify player can move
 }
 
+#pragma mark - Interface
 -(void)didSingleTap:(UITapGestureRecognizer *)aSingleTap
 {
     CGPoint touchPoint = [aSingleTap locationInView:self.view];
@@ -66,34 +78,15 @@
         if(CGRectContainsPoint(arect, touchPoint) )
         {
             NSLog(@"%d",i);
-//            [aTile fillTile];
-//            [self.view removeGestureRecognizer:singleTap];
-//            [self computerMove];
+            [aTile setAffiliation:1];
+            [aTile fillTile];
+            [self.view removeGestureRecognizer:singleTap];
+            [hal move];
+            break;
         }
     }
 }
 
--(void)computerMove
-{
-    for (int i = 0; i < [[theGrid getTileArray] count]; i++)
-    {
-        Tile* aTile = [[theGrid getTileArray] objectAtIndex:i];
-        
-        if ([aTile getAffiliation] == 1)
-        {
-            
-        }
-    }
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Touch Gestures
 -(void)establishGestures
 {
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTap:)];

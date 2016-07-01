@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--About View Controller-->
@@ -57,23 +58,75 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qs-06-qyc">
                                 <rect key="frame" x="128" y="182" width="109" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="PLAY"/>
                                 <connections>
                                     <segue destination="7hz-dX-TX1" kind="presentation" id="UNZ-t2-4Nt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TERRITORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jac-xi-TmO">
+                                <rect key="frame" x="128" y="238" width="210" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcN-nA-3Wn">
+                                <rect key="frame" x="197" y="399" width="72" height="30"/>
+                                <state key="normal" title="SETTINGS"/>
+                                <connections>
+                                    <segue destination="qdA-tf-vSp" kind="presentation" id="v4G-aW-Cvy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQW-4E-N8a">
+                                <rect key="frame" x="328" y="399" width="52" height="30"/>
+                                <state key="normal" title="ABOUT"/>
+                                <connections>
+                                    <segue destination="tBa-0v-CPd" kind="presentation" id="2B7-Ef-kNE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKF-CH-oDd">
+                                <rect key="frame" x="115" y="399" width="38" height="30"/>
+                                <state key="normal" title="HELP"/>
+                                <connections>
+                                    <segue destination="axJ-m3-IwI" kind="presentation" id="6Lq-Sj-n19"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0Qs-06-qyc" firstAttribute="top" secondItem="gVa-hT-JmH" secondAttribute="bottom" constant="100" id="IgZ-hd-rRW"/>
-                            <constraint firstItem="0Qs-06-qyc" firstAttribute="centerX" secondItem="SRC-VE-6vL" secondAttribute="centerX" id="Z1c-bZ-pSv"/>
+                            <constraint firstItem="jac-xi-TmO" firstAttribute="centerY" secondItem="SRC-VE-6vL" secondAttribute="centerY" id="9V0-8X-IC1"/>
+                            <constraint firstItem="0Qs-06-qyc" firstAttribute="centerX" secondItem="SRC-VE-6vL" secondAttribute="centerX" id="EKb-Bl-R7q"/>
+                            <constraint firstItem="IQW-4E-N8a" firstAttribute="leading" secondItem="VcN-nA-3Wn" secondAttribute="trailing" constant="59" id="Fdb-mC-UlY"/>
+                            <constraint firstItem="NKF-CH-oDd" firstAttribute="top" secondItem="jac-xi-TmO" secondAttribute="bottom" constant="25" id="HEg-Nb-zqL"/>
+                            <constraint firstItem="VcN-nA-3Wn" firstAttribute="leading" secondItem="NKF-CH-oDd" secondAttribute="trailing" constant="25" id="Hxm-lY-blC"/>
+                            <constraint firstItem="jac-xi-TmO" firstAttribute="centerX" secondItem="SRC-VE-6vL" secondAttribute="centerX" id="MAl-IQ-n3L"/>
+                            <constraint firstItem="IQW-4E-N8a" firstAttribute="leading" secondItem="VcN-nA-3Wn" secondAttribute="trailing" constant="25" id="Wgp-zu-Jw5"/>
+                            <constraint firstItem="0Qs-06-qyc" firstAttribute="centerX" secondItem="SRC-VE-6vL" secondAttribute="centerX" id="X4j-Ex-k8o"/>
+                            <constraint firstItem="VcN-nA-3Wn" firstAttribute="leading" secondItem="NKF-CH-oDd" secondAttribute="trailing" constant="25" id="fNZ-tQ-Pgq"/>
+                            <constraint firstItem="IQW-4E-N8a" firstAttribute="top" secondItem="jac-xi-TmO" secondAttribute="bottom" constant="25" id="j0x-gh-Y60"/>
+                            <constraint firstItem="IQW-4E-N8a" firstAttribute="top" secondItem="jac-xi-TmO" secondAttribute="bottom" constant="25" id="m3n-Av-BsN"/>
+                            <constraint firstItem="jac-xi-TmO" firstAttribute="top" secondItem="0Qs-06-qyc" secondAttribute="bottom" constant="25" id="rJ5-vb-KMb"/>
+                            <constraint firstItem="0Qs-06-qyc" firstAttribute="centerY" secondItem="SRC-VE-6vL" secondAttribute="centerY" id="rbB-We-Rlf"/>
+                            <constraint firstItem="VcN-nA-3Wn" firstAttribute="top" secondItem="jac-xi-TmO" secondAttribute="bottom" constant="25" id="uqq-yq-xSF"/>
+                            <constraint firstItem="VcN-nA-3Wn" firstAttribute="centerX" secondItem="SRC-VE-6vL" secondAttribute="centerX" id="y4j-Az-cnq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="X4j-Ex-k8o"/>
+                                <exclude reference="rbB-We-Rlf"/>
+                                <exclude reference="fNZ-tQ-Pgq"/>
+                                <exclude reference="Fdb-mC-UlY"/>
+                                <exclude reference="m3n-Av-BsN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="aboutButton" destination="IQW-4E-N8a" id="4sQ-0D-MJg"/>
+                        <outlet property="helpButton" destination="NKF-CH-oDd" id="AjZ-mZ-gF7"/>
                         <outlet property="playButton" destination="0Qs-06-qyc" id="Elb-Zr-ZuR"/>
+                        <outlet property="settingsButton" destination="VcN-nA-3Wn" id="j2z-Yn-vtk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQs-E1-ZOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,29 +145,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELR-xN-EL6">
-                                <rect key="frame" x="28" y="33" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="ZCc-Wu-c5E" kind="presentation" id="diK-4G-cb9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-hB-f1q">
-                                <rect key="frame" x="521" y="33" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-hB-f1q">
+                                <rect key="frame" x="525" y="33" width="38" height="30"/>
+                                <state key="normal" title="HELP"/>
                                 <connections>
                                     <segue destination="axJ-m3-IwI" kind="presentation" id="4Tl-MB-naA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgT-4q-v8D">
-                                <rect key="frame" x="521" y="71" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgT-4q-v8D">
+                                <rect key="frame" x="508" y="71" width="72" height="30"/>
+                                <state key="normal" title="SETTINGS"/>
                                 <connections>
                                     <segue destination="qdA-tf-vSp" kind="presentation" id="8Hd-TQ-EH8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELR-xN-EL6">
+                                <rect key="frame" x="29" y="33" width="44" height="30"/>
+                                <state key="normal" title="HOME"/>
+                                <connections>
+                                    <segue destination="ZCc-Wu-c5E" kind="presentation" id="diK-4G-cb9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="raQ-hB-f1q" firstAttribute="top" secondItem="5pV-yg-4bf" secondAttribute="bottom" id="6OX-13-7ba"/>
+                            <constraint firstItem="wgT-4q-v8D" firstAttribute="top" secondItem="raQ-hB-f1q" secondAttribute="bottom" constant="4" id="LqX-Nd-Kpu"/>
+                            <constraint firstItem="wgT-4q-v8D" firstAttribute="trailing" secondItem="726-4v-xKe" secondAttribute="trailingMargin" id="N3O-hv-4EH"/>
+                            <constraint firstItem="ELR-xN-EL6" firstAttribute="leading" secondItem="726-4v-xKe" secondAttribute="leadingMargin" id="YcL-2c-3po"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="raQ-hB-f1q" secondAttribute="trailing" id="mRf-nv-aqB"/>
+                            <constraint firstItem="ELR-xN-EL6" firstAttribute="top" secondItem="5pV-yg-4bf" secondAttribute="bottom" id="zz0-jI-qYL"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -150,4 +211,8 @@
             <point key="canvasLocation" x="1157" y="822"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6Lq-Sj-n19"/>
+        <segue reference="v4G-aW-Cvy"/>
+    </inferredMetricsTieBreakers>
 </document>

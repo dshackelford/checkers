@@ -13,6 +13,7 @@
 #import "Inventory.h"
 
 #import "TheGridView.h"
+#import "Hal.h"
 
 @interface PlayViewController : UIViewController
 {
@@ -25,12 +26,16 @@
     Inventory* userInven;
     Inventory* compInven;
     
-    
     TheGridView* gridView;
+    
+    NSMutableArray* tileArray;
     
     IBOutlet UIButton* homeButton;
     IBOutlet UIButton* helpButton;
     IBOutlet UIButton* settingsButton;
+    
+    Hal* hal;
+
 }
 
 
