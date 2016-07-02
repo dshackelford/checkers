@@ -32,7 +32,7 @@
     [self.view addSubview:gridView];
     
     //MAKE GRID OF SOME SIZE (WIDTH X HEIGHT)
-    [gridView drawGridOfSize:CGSizeMake(10,20)];
+    [gridView drawGridOfSize:CGSizeMake(5,10)];
     
     tileArray = [[NSMutableArray alloc] initWithArray:[gridView getTileArray]];
     
@@ -46,6 +46,9 @@
     
     //load HAL into gameplay
     hal = [[Hal alloc] initWithGrid:gridView andFirstPieceIndex:[tileArray count] - [gridView getGridSize].width/2];
+    
+    userPieces = [[NSMutableArray alloc] init];
+    [userPieces addObject:[NSNumber numberWithInteger:[gridView getGridSize].width/2]];
 }
 
 
@@ -68,6 +71,7 @@
     for (int i = 0; i < [[gridView getTileArray] count]; i++)
     {
         Tile* aTile = [[gridView getTileArray] objectAtIndex:i];
+        [userPieces addObject:[NSNumber numberWithInteger:i]];
         
         CGRect arect = [aTile getRect];
         CGRect gridRect = gridView.frame;
@@ -81,10 +85,37 @@
             [aTile setAffiliation:1];
             [aTile fillTile];
             [self.view removeGestureRecognizer:singleTap];
-            [hal move];
+            [hal moveAgainstUser:userPieces];
             break;
         }
     }
+}
+
+//if this does not pass, then we chill
+-(BOOL)checkrules:(int)i
+{
+    BOOL fair;
+    
+    if (((i + 1) % (int)[gridView getGridSize].width) == 0)
+    {
+        NSLog(@"right edge");
+    }
+    else if((i % (int)[gridView getGridSize].width ) == 0)
+    {
+        NSLog(@"Left Edge");
+    }
+    
+    if(i < [gridView getGridSize].width)
+    {
+        NSLog(@"Top Edge");
+    }
+    else if(i >= [gridView getGridSize].width*([gridView getGridSize].height-1))
+    {
+        NSLog(@"Bootom Edge");
+    }
+    
+    return fair;
+    
 }
 
 -(void)establishGestures

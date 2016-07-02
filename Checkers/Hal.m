@@ -23,61 +23,167 @@
     
     playerPieces = [[NSMutableArray alloc] init];
     
-    [pieces addObject:[NSNumber numberWithDouble:pieceIndexInit]];
+    [pieces addObject:[NSNumber numberWithInteger:pieceIndexInit]];
     
     return self;
 }
 
--(void)move
+-(void)moveAgainstUser:(NSMutableArray*)userPiecesInit
 {
+    playerPieces = userPiecesInit;
+    
     //ask for what pieces are already played
     NSMutableArray* currentGridLayout = [[NSMutableArray alloc] initWithArray:[theGridView getTileArray]];
 
-    NSMutableArray* optionalIndexes = [self findAvailableIndexesInGrid:currentGridLayout];
+    NSMutableArray* optionalIndexes = [self findAllAvailableIndexesInGrid:currentGridLayout];
     
-    double i = arc4random()%[optionalIndexes count];
-    
-    double nextIndex = [[optionalIndexes objectAtIndex:i] doubleValue];
-    
-    NSLog(@"HAL: %f",nextIndex);
-    
-    Tile* nextTile = [currentGridLayout objectAtIndex:nextIndex];
-    [pieces addObject:[NSNumber numberWithDouble:nextIndex]];
-    [nextTile setAffiliation:2];
-    [nextTile fillTile];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"HalMoved" object:self];
-    
-    //check what i have already played
-    //chose a spot to play
-    //check to see if it passes the rules
-    //make the move
+    if ([optionalIndexes count] > 0)
+    {
+        int i = arc4random()%[optionalIndexes count];
+        int nextIndex = [[optionalIndexes objectAtIndex:i] integerValue];
+        
+        Tile* nextTile = [currentGridLayout objectAtIndex:nextIndex];
+        [pieces addObject:[NSNumber numberWithInteger:nextIndex]];
+        [nextTile setAffiliation:2];
+        [nextTile fillTile];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"HalMoved" object:self];
+    }
+    else //there is no move to make without attacking ?!
+    {
+        //should I attack now?
+    }
+
 }
 
--(NSMutableArray*)findAvailableIndexesInGrid:(NSMutableArray*)gridArrayInit
+
+#pragma mark - Refinement
+/*FIND INDEXES FOR NEXT MOVE
+ - CAN'T GO ACROSS EDGE OF BOARD
+ - CAN'T CHOOSE A TILE ON ITSELF
+ - CAN'T CHOOSE A USERS TILE (FOR NOW)
+ */
+-(NSMutableArray*)findAllAvailableIndexesInGrid:(NSMutableArray*)gridArrayInit
 {
-     double currentIndex = [[pieces lastObject] doubleValue];
-    NSMutableArray* optionIndexes = [[NSMutableArray alloc] init];
+    NSMutableArray* allIndexes = [[NSMutableArray alloc] init];
     
-    //shoule be one to the left
-    if ([[gridArrayInit objectAtIndex:currentIndex - 1] getAffiliation] == 0)
+    for (int i = 0; i < [pieces count]; i++)
     {
-        [optionIndexes addObject:[NSNumber numberWithDouble:currentIndex - 1]];
+        int anIndex = [[pieces objectAtIndex:i] integerValue];
+        
+        NSMutableArray* crossIndex = [[NSMutableArray alloc] initWithArray:[self findCrossIndexes:anIndex]];
+        
+        NSMutableIndexSet* edgeCases = [[NSMutableIndexSet alloc] initWithIndexSet:[self checkEdgeCases:anIndex]];
+        
+//        for (int j = 0; j < [edgeCases count]; j++)
+//        {
+//            //remove options of travel based off edge cases
+//            [crossIndex removeObjectAtIndex:[[edgeCases objectAtIndex:j] integerValue]];
+//        }
+        
+        [crossIndex removeObjectsAtIndexes:edgeCases];
+        
+        [allIndexes addObjectsFromArray:crossIndex];
     }
     
-    if ([[gridArrayInit objectAtIndex:currentIndex + 1] getAffiliation] == 0)
-    {
-        [optionIndexes addObject:[NSNumber numberWithDouble:currentIndex - 1]];
-    }
+    allIndexes = [self checkPotentialIndexsForAlreadyTaken:allIndexes];
+    allIndexes = [self checkAllIndexes:allIndexes againstUserIndexes:playerPieces];
     
-    if ([[gridArrayInit objectAtIndex:(currentIndex - [theGridView getGridSize].width)] getAffiliation] == 0)
-    {
-        [optionIndexes addObject:[NSNumber numberWithDouble:currentIndex - [theGridView getGridSize].width]];
-    }
-    
-    return optionIndexes;
-    
-    //what about corner cases?
+    return allIndexes;
 }
+
+//FIND INDEXES FOR INDEXES FOR CROSS TILES
+-(NSMutableArray*)findCrossIndexes:(int)anIndex
+{
+    NSMutableArray* crossIndexes = [[NSMutableArray alloc] init];
+    
+    int rightIndex = anIndex + 1;
+    [crossIndexes addObject:[NSNumber numberWithInteger:rightIndex]];
+    
+    int leftIndex = anIndex - 1;
+    [crossIndexes addObject:[NSNumber numberWithInteger:leftIndex]];
+    
+    int topIndex = anIndex - [theGridView getGridSize].width;
+    [crossIndexes addObject:[NSNumber numberWithInteger:topIndex]];
+    
+    int botIndex = anIndex + [theGridView getGridSize].width;
+    [crossIndexes addObject:[NSNumber numberWithInteger:botIndex]];
+    
+    return crossIndexes;
+
+}
+
+//DETERMINE IF AN INDEX IS AN EDGE CASE SO THAT ITS NEXT MOVE IS LIMITED TO STAY INSIDE BOARD
+-(NSMutableIndexSet*)checkEdgeCases:(int)indexInit
+{
+    NSMutableIndexSet* edgeCases = [[NSMutableIndexSet alloc] init];
+    
+    //for the right/left edge case
+    if (((indexInit + 1) % (int)[theGridView getGridSize].width) == 0) //right
+    {
+        [edgeCases addIndex:0];
+    }
+    else if((indexInit % (int)[theGridView getGridSize].width ) == 0) //Left
+    {
+        [edgeCases addIndex:1];
+    }
+    
+    if(indexInit < [theGridView getGridSize].width) //Top
+    {
+        [edgeCases addIndex:2];
+    }
+    else if(indexInit >= [theGridView getGridSize].width*([theGridView getGridSize].height-1)) //Bottom
+    {
+        [edgeCases addIndex:3];
+    }
+    
+    return edgeCases;
+}
+
+//REMOVE OPTIONAL INDEXES FOR THOSE ALREADY TAKEN BY HAL
+-(NSMutableArray*)checkPotentialIndexsForAlreadyTaken:(NSMutableArray*)potentialIndexes
+{
+    NSMutableIndexSet* indexesToDelete = [[NSMutableIndexSet alloc] init];
+    
+    for (int i = 0; i < [potentialIndexes count]; i ++)
+    {
+        for (int j = 0; j < [pieces count]; j++)
+        {
+            if ([pieces objectAtIndex:j] == [potentialIndexes objectAtIndex:i])
+            {
+                [indexesToDelete addIndex:i];
+            }
+        }
+    }
+    
+    [potentialIndexes removeObjectsAtIndexes:indexesToDelete];
+    return potentialIndexes;
+}
+
+-(NSMutableArray*)checkAllIndexes:(NSMutableArray*)potentialIndexes againstUserIndexes:(NSMutableArray*)userIndexes
+{
+    NSMutableIndexSet* indexesToDelete = [[NSMutableIndexSet alloc] init];
+    
+    for (int i = 0; i < [potentialIndexes count]; i ++)
+    {
+        for (int j = 0; j < [userIndexes count]; j++)
+        {
+            if ([userIndexes objectAtIndex:j] == [potentialIndexes objectAtIndex:i])
+            {
+                [indexesToDelete addIndex:i];
+            }
+        }
+    }
+    
+    [potentialIndexes removeObjectsAtIndexes:indexesToDelete];
+    return potentialIndexes;
+}
+
+/*
+ FUTURE STRATEGY
+ - USER TACTIC DETECTION (TERRITORY GRAB OR LONGEST ROAD)
+ - SHORTEST DISTANCE TO TILE
+ -
+ */
 
 @end

@@ -30,6 +30,8 @@
     
     NSMutableArray* tileArray;
     
+    NSMutableArray* userPieces;
+    
     IBOutlet UIButton* homeButton;
     IBOutlet UIButton* helpButton;
     IBOutlet UIButton* settingsButton;

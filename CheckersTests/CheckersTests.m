@@ -24,9 +24,37 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testExample
+{
+//        NSMutableArray* array = [[NSMutableArray alloc] init];
+//    
+//        for (int i = 0; i < 4 ; i ++)
+//        {
+//            [array addObject:[NSNumber numberWithInteger:i]];
+//        }
+//    
+//        int index = 0;
+//        int count = [array count];
+//    
+//    
+//        while(index < 30)
+//        {
+//            double ran = arc4random()%count;
+//            printf("%f\n", ran);
+//            
+//            index = index + 1;
+//        }
+//    
+    int a = 10;
+    int b = 5;
+    if ((a % b) == 0)
+    {
+        NSLog(@"A is divisible by B");
+    } else
+    {
+       NSLog(@"A isnt divisible by B");
+    }
+
 }
 
 - (void)testPerformanceExample {
