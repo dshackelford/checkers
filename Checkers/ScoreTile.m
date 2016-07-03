@@ -11,29 +11,48 @@
 
 @implementation ScoreTile
 
--(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit inView:(UIView*)viewInit
+-(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit LineWidth:(double)lineWidthInit inView:(UIView*)viewInit
 {
     self = [super init];
     
     origin = pointInit;
     size = sizeInit;
-    bounds = CGRectMake(origin.x + 5, origin.y + 5, size.width, size.height);
+    bounds = CGRectMake(origin.x, origin.y, size.width, size.height);
     gridView = viewInit;
+    affiliation = 0;
+    linewidth = lineWidthInit;
+    [self drawTileToView];
     
-    scoreLabel = [[UILabel alloc] initWithFrame:bounds];
-    scoreLabel.text = @"10";
-    scoreLabel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.2];
-    
-    scoreLabel.textAlignment = 1;
-    scoreLabel.textColor=[UIColor blackColor];
-    scoreLabel.font = [UIFont boldSystemFontOfSize:40];
-        [viewInit addSubview:scoreLabel];
     return self;
 }
 
--(void)setScore:(double)scoreInit
+-(void)drawTileToView
 {
-    scoreLabel.text = [NSString stringWithFormat:@"%.0f",scoreInit];
+    //start the rect at 0,0 to draw all of it within the current context rect
+    UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(linewidth , linewidth, size.width, size.height)];
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width + 3*linewidth, size.height + 3*linewidth), NO, 0.0);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+//    CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
+    tilePath.lineWidth = linewidth;
+    
+    [tilePath stroke];
+//    [tilePath fill];
+    
+    UIImage *bezierImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    //make the image view from the path drawn on the context
+    bezierImageView = [[UIImageView alloc]initWithImage:bezierImage];
+    
+    //the center is offset to accomodate the actual origin which will be used later for touch detection
+    bezierImageView.center = CGPointMake(origin.x + size.width/2 + linewidth,origin.y + size.height/2 + linewidth);
+    
+    [gridView addSubview:bezierImageView];
 }
 
 @end

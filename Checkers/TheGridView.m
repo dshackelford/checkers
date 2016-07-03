@@ -60,6 +60,9 @@
         [self setFrame:CGRectMake(self.frame.origin.x + leftover/2, self.frame.origin.y, self.frame.size.width, self.frame.size.height)];
     }
     
+    //i grab this data before because that is the real length that the other viewers need to no
+    tileSize = CGSizeMake(length, length);
+    
     length = length - lineWidthInit;
     return CGSizeMake(length, length);
 }
@@ -72,6 +75,11 @@
 -(CGSize)getGridSize
 {
     return gridSize;
+}
+
+-(CGSize)getGridTileSize
+{
+    return tileSize;
 }
 
 @end

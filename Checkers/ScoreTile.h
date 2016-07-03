@@ -13,7 +13,6 @@
     UILabel* scoreLabel;
 }
 
--(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit inView:(UIView*)viewInit;
--(void)setScore:(double)scoreInit;
+-(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit LineWidth:(double)lineWidthInit inView:(UIView*)viewInit;
 
 @end

@@ -14,10 +14,13 @@
 {
     NSMutableArray* arrayOfTiles;
     CGSize gridSize;
+    CGSize tileSize;
+    
 }
 
 -(void)drawGridOfSize:(CGSize)sizeInit;
 -(NSMutableArray*)getTileArray;
 -(CGSize)getGridSize;
+-(CGSize)getGridTileSize;
 
 @end

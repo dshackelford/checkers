@@ -21,4 +21,5 @@
 
 -(id)initWithGrid:(TheGridView*)gridInit andFirstPieceIndex:(double)pieceIndexInit;
 -(void)moveAgainstUser:(NSMutableArray*)userPiecesInit;
+-(NSMutableArray*)getPieces;
 @end

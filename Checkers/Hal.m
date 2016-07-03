@@ -44,14 +44,19 @@
         
         Tile* nextTile = [currentGridLayout objectAtIndex:nextIndex];
         [pieces addObject:[NSNumber numberWithInteger:nextIndex]];
+        
+//        dispatch_async(dispatch_get_main_queue(),
+//                       ^{
         [nextTile setAffiliation:2];
         [nextTile fillTile];
+                           
+//                       });
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"HalMoved" object:self];
     }
     else //there is no move to make without attacking ?!
     {
-        //should I attack now?
+        NSLog(@"I can not move without attacking");
     }
 
 }
@@ -177,6 +182,11 @@
     
     [potentialIndexes removeObjectsAtIndexes:indexesToDelete];
     return potentialIndexes;
+}
+
+-(NSMutableArray*)getPieces
+{
+    return pieces;
 }
 
 /*

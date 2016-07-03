@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6914CFF51D23767600185EC9 /* TheGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6914CFF41D23767600185EC9 /* TheGridView.xib */; };
 		6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914CFF61D23768A00185EC9 /* TheGridView.m */; };
-		6914CFFB1D23962500185EC9 /* ViewMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914CFFA1D23962500185EC9 /* ViewMaster.m */; };
 		692168441D11177A00F9910C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168431D11177A00F9910C /* main.m */; };
 		692168471D11177A00F9910C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168461D11177A00F9910C /* AppDelegate.m */; };
 		6921684D1D11177A00F9910C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6921684B1D11177A00F9910C /* Main.storyboard */; };
@@ -17,12 +16,15 @@
 		692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692168501D11177A00F9910C /* LaunchScreen.storyboard */; };
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
+		69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */; };
+		69A7F5D81D28268B00F1F69D /* TheScoreboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */; };
 		69ABFAB31D1B8FE400BE9C68 /* ScoreBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */; };
 		69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */; };
 		69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */; };
 		69ABFABF1D1BB0EC00BE9C68 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABE1D1BB0EC00BE9C68 /* AboutViewController.m */; };
 		69ABFAC41D1C437900BE9C68 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFAC31D1C437900BE9C68 /* Inventory.m */; };
 		69C74D9F1D26144B000AB4B2 /* Hal.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C74D9E1D26144B000AB4B2 /* Hal.m */; };
+		69C9B4C61D279E4900089C56 /* ViewMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9B4C51D279E4900089C56 /* ViewMaster.m */; };
 		69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0C75F1D151B190006BC1E /* PlayViewController.m */; };
 		69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0C7631D151B9E0006BC1E /* HomeViewController.m */; };
 		69D15C7D1D18FC7D007DA6AA /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C7C1D18FC7D007DA6AA /* Grid.m */; };
@@ -52,8 +54,6 @@
 		6914CFF41D23767600185EC9 /* TheGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheGridView.xib; sourceTree = "<group>"; };
 		6914CFF61D23768A00185EC9 /* TheGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheGridView.m; sourceTree = "<group>"; };
 		6914CFF81D23769000185EC9 /* TheGridView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheGridView.h; sourceTree = "<group>"; };
-		6914CFF91D23961F00185EC9 /* ViewMaster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewMaster.h; path = ../ViewMaster.h; sourceTree = "<group>"; };
-		6914CFFA1D23962500185EC9 /* ViewMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewMaster.m; path = ../ViewMaster.m; sourceTree = "<group>"; };
 		6921683F1D11177A00F9910C /* Checkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168431D11177A00F9910C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		692168451D11177A00F9910C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +68,9 @@
 		692168631D11177A00F9910C /* CheckersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168671D11177A00F9910C /* CheckersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckersUITests.m; sourceTree = "<group>"; };
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheScoreboardView.xib; sourceTree = "<group>"; };
+		69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheScoreboardView.m; sourceTree = "<group>"; };
+		69A7F5D91D28269300F1F69D /* TheScoreboardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheScoreboardView.h; sourceTree = "<group>"; };
 		69ABFAB11D1B8FDC00BE9C68 /* ScoreBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreBoard.h; sourceTree = "<group>"; };
 		69ABFAB21D1B8FE400BE9C68 /* ScoreBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoard.m; sourceTree = "<group>"; };
 		69ABFAB41D1B95F900BE9C68 /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 		69ABFAC31D1C437900BE9C68 /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
 		69C74D9E1D26144B000AB4B2 /* Hal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hal.m; sourceTree = "<group>"; };
 		69C74DA01D261454000AB4B2 /* Hal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hal.h; sourceTree = "<group>"; };
+		69C9B4C41D279E4900089C56 /* ViewMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewMaster.h; sourceTree = "<group>"; };
+		69C9B4C51D279E4900089C56 /* ViewMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewMaster.m; sourceTree = "<group>"; };
 		69D0C75F1D151B190006BC1E /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
 		69D0C7611D151B230006BC1E /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		69D0C7621D151B960006BC1E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -150,8 +155,11 @@
 				6914CFF41D23767600185EC9 /* TheGridView.xib */,
 				6914CFF81D23769000185EC9 /* TheGridView.h */,
 				6914CFF61D23768A00185EC9 /* TheGridView.m */,
-				6914CFF91D23961F00185EC9 /* ViewMaster.h */,
-				6914CFFA1D23962500185EC9 /* ViewMaster.m */,
+				69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */,
+				69A7F5D91D28269300F1F69D /* TheScoreboardView.h */,
+				69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */,
+				69C9B4C41D279E4900089C56 /* ViewMaster.h */,
+				69C9B4C51D279E4900089C56 /* ViewMaster.m */,
 				6921684E1D11177A00F9910C /* Assets.xcassets */,
 				692168501D11177A00F9910C /* LaunchScreen.storyboard */,
 				692168531D11177A00F9910C /* Info.plist */,
@@ -330,6 +338,7 @@
 				692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */,
 				6921684F1D11177A00F9910C /* Assets.xcassets in Resources */,
 				6921684D1D11177A00F9910C /* Main.storyboard in Resources */,
+				69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */,
 				6914CFF51D23767600185EC9 /* TheGridView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +367,7 @@
 				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
 				6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */,
 				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
+				69C9B4C61D279E4900089C56 /* ViewMaster.m in Sources */,
 				69ABFAB51D1B95F900BE9C68 /* ScoreTile.m in Sources */,
 				69D15C7D1D18FC7D007DA6AA /* Grid.m in Sources */,
 				69C74D9F1D26144B000AB4B2 /* Hal.m in Sources */,
@@ -369,8 +379,8 @@
 				69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */,
 				69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */,
 				692168441D11177A00F9910C /* main.m in Sources */,
-				6914CFFB1D23962500185EC9 /* ViewMaster.m in Sources */,
 				69F8D3911D21AC1B0012F33C /* SettingsViewController.m in Sources */,
+				69A7F5D81D28268B00F1F69D /* TheScoreboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

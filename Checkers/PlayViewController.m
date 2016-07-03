@@ -32,7 +32,22 @@
     [self.view addSubview:gridView];
     
     //MAKE GRID OF SOME SIZE (WIDTH X HEIGHT)
-    [gridView drawGridOfSize:CGSizeMake(5,10)];
+    [gridView drawGridOfSize:CGSizeMake(6,20)];
+    
+    NSLog(@"oring X:%f Y:%f width:%f height:%f", gridView.frame.origin.x, gridView.frame.origin.y, gridView.frame.size.width, gridView.frame.size.height);
+    
+    CGSize tileSize = CGSizeMake(40, 40);
+    
+    CGPoint tileOrigin = CGPointMake(gridView.frame.origin.x + [gridView getGridTileSize].width*[gridView getGridSize].width/2 - tileSize.width, gridView.frame.origin.y - tileSize.height - 3);
+    
+    NSLog(@"scorebaord origin X:%f Y:%f",tileOrigin.x,tileOrigin.y);
+    
+    CGRect frame = CGRectMake(tileOrigin.x, tileOrigin.y, tileSize.width*2, tileSize.width*2);
+    scoreboardView = [[TheScoreboardView alloc] initWithFrame:frame];
+    [self.view addSubview:scoreboardView];
+    
+    [scoreboardView drawScoreBoardAboveGrid:gridView];
+
     
     tileArray = [[NSMutableArray alloc] initWithArray:[gridView getTileArray]];
     
@@ -56,6 +71,7 @@
 -(void)HalMoved:(NSNotification*)notification
 {
     [self.view addGestureRecognizer:singleTap];
+    [scoreboardView setHalScore:[[hal getPieces] count]];
     
     //stop loading animation
     //notify player can move
@@ -71,7 +87,6 @@
     for (int i = 0; i < [[gridView getTileArray] count]; i++)
     {
         Tile* aTile = [[gridView getTileArray] objectAtIndex:i];
-        [userPieces addObject:[NSNumber numberWithInteger:i]];
         
         CGRect arect = [aTile getRect];
         CGRect gridRect = gridView.frame;
@@ -81,11 +96,15 @@
         
         if(CGRectContainsPoint(arect, touchPoint) )
         {
+            [userPieces addObject:[NSNumber numberWithInteger:i]];
             NSLog(@"%d",i);
             [aTile setAffiliation:1];
             [aTile fillTile];
             [self.view removeGestureRecognizer:singleTap];
+            
+//           dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             [hal moveAgainstUser:userPieces];
+//           });
             break;
         }
     }
