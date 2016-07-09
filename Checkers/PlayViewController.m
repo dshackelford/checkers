@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PlayViewController.h"
+#import "PlayViewController+Setup.h"
 
 @implementation PlayViewController
 
@@ -27,54 +28,28 @@
     
     [self establishGestures];
     
-    CGSize border = CGSizeMake(70, 70);
-    gridView = [[TheGridView alloc] initWithFrame:CGRectMake(border.width, border.height, screenSize.width - 2*border.width, screenSize.height - 2*border.height)];
-    [self.view addSubview:gridView];
-    
-    //MAKE GRID OF SOME SIZE (WIDTH X HEIGHT)
-    [gridView drawGridOfSize:CGSizeMake(6,20)];
-    
-    NSLog(@"oring X:%f Y:%f width:%f height:%f", gridView.frame.origin.x, gridView.frame.origin.y, gridView.frame.size.width, gridView.frame.size.height);
-    
-    CGSize tileSize = CGSizeMake(40, 40);
-    
-    CGPoint tileOrigin = CGPointMake(gridView.frame.origin.x + [gridView getGridTileSize].width*[gridView getGridSize].width/2 - tileSize.width, gridView.frame.origin.y - tileSize.height - 3);
-    
-    NSLog(@"scorebaord origin X:%f Y:%f",tileOrigin.x,tileOrigin.y);
-    
-    CGRect frame = CGRectMake(tileOrigin.x, tileOrigin.y, tileSize.width*2, tileSize.width*2);
-    scoreboardView = [[TheScoreboardView alloc] initWithFrame:frame];
-    [self.view addSubview:scoreboardView];
-    
-    [scoreboardView drawScoreBoardAboveGrid:gridView];
-
-    
-    tileArray = [[NSMutableArray alloc] initWithArray:[gridView getTileArray]];
-    
-    //SET HOME BASE FOR PLAYER
-    [[tileArray objectAtIndex:[gridView getGridSize].width/2] setAffiliation:1];
-    [[tileArray objectAtIndex:[gridView getGridSize].width/2] fillTile];
-    
-    //SET HOME BASE FOR HAL
-    [[tileArray objectAtIndex:[tileArray count] - [gridView getGridSize].width/2] setAffiliation:2];
-    [[tileArray objectAtIndex:[tileArray count] - [gridView getGridSize].width/2] fillTile];
-    
-    //load HAL into gameplay
-    hal = [[Hal alloc] initWithGrid:gridView andFirstPieceIndex:[tileArray count] - [gridView getGridSize].width/2];
-    
+    theFieldDictionary = [[NSMutableDictionary alloc] init];
     userPieces = [[NSMutableArray alloc] init];
-    [userPieces addObject:[NSNumber numberWithInteger:[gridView getGridSize].width/2]];
+    halPieces = [[NSMutableArray alloc] init];
+    userEndzone = [[NSMutableArray alloc] init];
+    halEndzone = [[NSMutableArray alloc] init];
+    
+    [self setUpView]; //found in category
+    
+    theFieldDictionary = [self getCurrentFieldDictionary];
 }
-
 
 
 -(void)HalMoved:(NSNotification*)notification
 {
+    //allow user to touch screen
     [self.view addGestureRecognizer:singleTap];
+    
+    //update the score
     [scoreboardView setHalScore:[[hal getPieces] count]];
     
-    //stop loading animation
-    //notify player can move
+    int index = [notification.object integerValue];
+    [self addAPieceOfSize:[gridView getGridTileSize] AtIndex:index andLineWidth:3 andAffiliation:2];
 }
 
 #pragma mark - Interface
@@ -84,6 +59,7 @@
     
     NSLog(@"%f,%f",touchPoint.x,touchPoint.y);
     
+    //FIND WHERE THE TOUCH LOCATION IS IN THE GRID
     for (int i = 0; i < [[gridView getTileArray] count]; i++)
     {
         Tile* aTile = [[gridView getTileArray] objectAtIndex:i];
@@ -96,15 +72,30 @@
         
         if(CGRectContainsPoint(arect, touchPoint) )
         {
-            [userPieces addObject:[NSNumber numberWithInteger:i]];
-            NSLog(@"%d",i);
-            [aTile setAffiliation:1];
-            [aTile fillTile];
-            [self.view removeGestureRecognizer:singleTap];
             
-//           dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            [hal moveAgainstUser:userPieces];
-//           });
+            //ADD A USER PIECE TO GRID
+//            [self addAPieceOfSize:[gridView getGridTileSize] AtIndex:i andLineWidth:3 andAffiliation:1];
+            
+            userPieces = [theFieldDictionary objectForKey:@"userPieces"];
+            
+            [aTile highlight];
+            
+            
+            //check legaility of move
+            if ([self checkrules:i])
+            {
+                NSLog(@"Touch Index: %d",i);
+                [self.view removeGestureRecognizer:singleTap];
+                
+                
+                //tell hal to move
+                [hal moveAgainstUser:[self getCurrentFieldDictionary]];
+            }
+            else
+            {
+                
+            }
+            
             break;
         }
     }
@@ -133,7 +124,8 @@
         NSLog(@"Bootom Edge");
     }
     
-    return fair;
+    //for testing purposes, this will definitely change in the future
+    return YES;
     
 }
 
@@ -145,5 +137,30 @@
     [self.view addGestureRecognizer:singleTap];
 }
 
+-(NSMutableArray*)getTileArrayOfAffiliation:(int)affiliationInit
+{
+    NSMutableArray* aTileArray=  [gridView getTileArray];
+    NSMutableArray* aUserEndzone = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [aTileArray count]; i++)
+    {
+        if ([[aUserEndzone objectAtIndex:i] getAffiliation] == affiliationInit)
+        {
+            [aUserEndzone addObject:[NSNumber numberWithInteger:i]];
+        }
+    }
+    
+    return aUserEndzone;
+}
+
+-(NSMutableDictionary*)getCurrentFieldDictionary
+{
+    [theFieldDictionary setObject:userPieces forKey:@"userPieces"];
+    [theFieldDictionary setObject:userEndzone forKey:@"userEndzone"];
+    [theFieldDictionary setObject:halPieces forKey:@"halPieces"];
+    [theFieldDictionary setObject:halEndzone forKey:@"halEndzone"];
+    
+    return theFieldDictionary;
+}
 
 @end

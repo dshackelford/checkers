@@ -10,16 +10,18 @@
 #import "TheGridView.h"
 #import "Tile.h"
 
+
 @interface Hal : NSObject
 {
     NSMutableArray* pieces;
     NSMutableArray* playerPieces;
     NSMutableArray* gridTiles;
+    NSMutableArray* halEndzone;
     
     TheGridView* theGridView;
 }
 
 -(id)initWithGrid:(TheGridView*)gridInit andFirstPieceIndex:(double)pieceIndexInit;
--(void)moveAgainstUser:(NSMutableArray*)userPiecesInit;
+-(void)moveAgainstUser:(NSMutableDictionary*)fieldDictionaryInit;
 -(NSMutableArray*)getPieces;
 @end

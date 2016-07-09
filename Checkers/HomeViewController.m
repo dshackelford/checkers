@@ -16,6 +16,10 @@
     
     screenSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
     
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        NSLog(@"This is iPhone");
+    }
     
 //    [self addTitleInView:self.view];
     [self addBackGroundDesignInView:self.view];

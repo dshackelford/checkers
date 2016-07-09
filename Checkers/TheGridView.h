@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ViewMaster.h"
 #import "Tile.h"
+#import "Peon.h"
 
 @interface TheGridView : ViewMaster
 {
@@ -22,5 +23,6 @@
 -(NSMutableArray*)getTileArray;
 -(CGSize)getGridSize;
 -(CGSize)getGridTileSize;
+-(CGSize)getGridTileSizeWithLineWidth;
 
 @end

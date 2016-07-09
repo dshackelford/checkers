@@ -11,7 +11,7 @@
 
 @implementation Tile
 
--(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit LineWidth:(double)lineWidthInit inView:(UIView*)viewInit
+-(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit LineWidth:(double)lineWidthInit Affiliation:(int)affiliationInit inView:(UIView*)viewInit
 {
     self = [super init];
     
@@ -19,8 +19,9 @@
     size = sizeInit;
     bounds = CGRectMake(origin.x, origin.y, size.width, size.height);
     gridView = viewInit;
-    affiliation = 0;
-    linewidth = lineWidthInit;
+    lineWidth = lineWidthInit;
+    affiliation = affiliationInit;
+    
     [self drawTileToView];
     
     return self;
@@ -29,15 +30,25 @@
 -(void)drawTileToView
 {
     //start the rect at 0,0 to draw all of it within the current context rect
-    UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(linewidth , linewidth, size.width, size.height)];
+    UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(lineWidth , lineWidth, size.width, size.height)];
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width + 3*linewidth, size.height + 3*linewidth), NO, 0.0);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width + 3*lineWidth, size.height + 3*lineWidth), NO, 0.0);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
-    tilePath.lineWidth = linewidth;
+    
+    if (affiliation == 11)
+    {
+        CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+    }
+    else if(affiliation == 22)
+    {
+        CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+    }
+    
+    tilePath.lineWidth = lineWidth;
     
     [tilePath stroke];
     [tilePath fill];
@@ -50,103 +61,92 @@
      bezierImageView = [[UIImageView alloc]initWithImage:bezierImage];
     
     //the center is offset to accomodate the actual origin which will be used later for touch detection
-    bezierImageView.center = CGPointMake(origin.x + size.width/2 + linewidth,origin.y + size.height/2 + linewidth);
+    bezierImageView.center = CGPointMake(origin.x + size.width/2 + lineWidth,origin.y + size.height/2 + lineWidth);
     
     [gridView addSubview:bezierImageView];
 }
 
--(void)fillTile
+-(void)placePiece
 {
-    [bezierImageView removeFromSuperview];
+    
+}
+
+-(void)highlight
+{
+    lineWidth = 2;
     //start the rect at 0,0 to draw all of it within the current context rect
-    UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(linewidth , linewidth, size.width, size.height)];
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width + 3*linewidth, size.height + 3*linewidth), NO, 0.0);
-    
+    UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(lineWidth , lineWidth, size.width,size.height)];
+        
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width + 3*lineWidth, size.height + 3*lineWidth), NO, 0.0);
+        
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    
-    if (affiliation == 1)
-    {
-        CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
-    }
-    else if(affiliation == 2)
-    {
-        CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
-    }
-    
-    tilePath.lineWidth = linewidth;
+        
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    tilePath.lineWidth = lineWidth;
+        
+        
+    CGFloat dashes[] = {8, 4};
+    [tilePath setLineDash:dashes count:2 phase:0];
+    [tilePath stroke];
     
     [tilePath stroke];
-    [tilePath fill];
-    
+        
     UIImage *bezierImage = UIGraphicsGetImageFromCurrentImageContext();
-    
+        
     UIGraphicsEndImageContext();
-    
+        
     //make the image view from the path drawn on the context
     bezierImageView = [[UIImageView alloc]initWithImage:bezierImage];
-    
+        
     //the center is offset to accomodate the actual origin which will be used later for touch detection
-    bezierImageView.center = CGPointMake(origin.x + size.width/2 + linewidth,origin.y + size.height/2 + linewidth);
-    
+    bezierImageView.center = CGPointMake(origin.x + size.width/2 + lineWidth,origin.y + size.height/2 +lineWidth);
+        
     [gridView addSubview:bezierImageView];
-    
-    affiliation = 1;
-    
 }
+    
 
--(void)drawCircle
+#pragma Setters & Getters
+-(void)setAffiliation:(double)affiliationInit
 {
-    UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(5, 5, size.width,size.height)];
-    
-//    UIGraphicsBeginImageContext(CGSizeMake(100, 100));
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(100, 100), NO, 0.0);
-    
-    //this gets the graphic context
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    //you can stroke and/or fill
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    
-    if (affiliation == 1)
-    {
-        CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
-    }
-    else if(affiliation == 2)
-    {
-       CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
-    }
-    
-    [circle fill];
-    [circle stroke];
-    
-    //now get the image from the context
-    UIImage *circleImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    UIImageView *circleImageView = [[UIImageView alloc]initWithImage:circleImage];
-    
-    circleImageView.center = CGPointMake(origin.x + size.width, origin.y + size.height);
-    
-    [gridView addSubview:circleImageView];
+    affiliation = affiliationInit;
+    [bezierImageView removeFromSuperview];
+    [self drawTileToView];
 }
 
--(double)getAffiliation
+-(CGSize)getSize
+{
+    return size;
+}
+
+-(CGPoint)getOrigin
+{
+    return origin;
+}
+
+-(CGRect)getRect
+{
+    return bounds;
+}
+
+-(int)getLineWidth
+{
+    return lineWidth;
+}
+
+-(int)getAffiliation
 {
     return affiliation;
 }
 
--(double)getLineWidth
+-(void)setSize:(CGSize)sizeInit
 {
-    return linewidth;
+    size = sizeInit;
 }
 
--(void)setAffiliation:(double)affiliationInit
+-(void)setOrigin:(CGPoint)pointInit
 {
-    affiliation = affiliationInit;
+    origin = pointInit;
 }
+
 
 @end

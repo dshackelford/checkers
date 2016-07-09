@@ -29,7 +29,7 @@
         {
             CGPoint aPoint = CGPointMake(i*(squareSize.width + lineWidth), j*(squareSize.height+lineWidth));
             
-            Tile* aTile = [[Tile alloc] initWithSize:squareSize atPoint:aPoint LineWidth:lineWidth inView:self];
+            Tile* aTile = [[Tile alloc] initWithSize:squareSize atPoint:aPoint LineWidth:lineWidth Affiliation:0 inView:self];
             
             [arrayOfTiles addObject:aTile];
         }
@@ -61,9 +61,10 @@
     }
     
     //i grab this data before because that is the real length that the other viewers need to no
-    tileSize = CGSizeMake(length, length);
+//    tileSize = CGSizeMake(length, length);
     
     length = length - lineWidthInit;
+    tileSize = CGSizeMake(length, length);
     return CGSizeMake(length, length);
 }
 
@@ -80,6 +81,14 @@
 -(CGSize)getGridTileSize
 {
     return tileSize;
+}
+
+//THIS HELPS THE SCORE BOARD TO CENTER ITSELF
+-(CGSize)getGridTileSizeWithLineWidth
+{
+    int lineWidth = [[arrayOfTiles objectAtIndex:0] getLineWidth];
+    CGSize aSize = CGSizeMake(tileSize.width + lineWidth,tileSize.height + lineWidth);
+    return aSize;
 }
 
 @end

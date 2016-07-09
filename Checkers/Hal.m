@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Hal.h"
+#import "Hal+Refinement.h"
 
 @implementation Hal
 
@@ -23,36 +24,34 @@
     
     playerPieces = [[NSMutableArray alloc] init];
     
-    [pieces addObject:[NSNumber numberWithInteger:pieceIndexInit]];
+    halEndzone = [[NSMutableArray alloc] init];
+    
+//    [pieces addObject:[NSNumber numberWithInteger:pieceIndexInit]];
     
     return self;
 }
 
--(void)moveAgainstUser:(NSMutableArray*)userPiecesInit
+-(void)moveAgainstUser:(NSMutableDictionary*)fieldDictionaryInit
 {
-    playerPieces = userPiecesInit;
+    
+    playerPieces = [fieldDictionaryInit objectForKey:@"userPieces"];
+    pieces = [fieldDictionaryInit objectForKey:@"halPieces"];
+    halEndzone = [fieldDictionaryInit objectForKey:@"halEndzone"];
     
     //ask for what pieces are already played
     NSMutableArray* currentGridLayout = [[NSMutableArray alloc] initWithArray:[theGridView getTileArray]];
 
-    NSMutableArray* optionalIndexes = [self findAllAvailableIndexesInGrid:currentGridLayout];
+    NSMutableArray* optionalIndexes = [self findAllAvailableIndexes];
+    
+//    [self observeUser];
     
     if ([optionalIndexes count] > 0)
     {
         int i = arc4random()%[optionalIndexes count];
         int nextIndex = [[optionalIndexes objectAtIndex:i] integerValue];
-        
-        Tile* nextTile = [currentGridLayout objectAtIndex:nextIndex];
-        [pieces addObject:[NSNumber numberWithInteger:nextIndex]];
-        
-//        dispatch_async(dispatch_get_main_queue(),
-//                       ^{
-        [nextTile setAffiliation:2];
-        [nextTile fillTile];
-                           
-//                       });
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"HalMoved" object:self];
+
+        //TELL PLAYVIEWCONTROLLER THE INDEX HAL HAS CHOSEN
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"HalMoved" object:[NSNumber numberWithInt:nextIndex]];
     }
     else //there is no move to make without attacking ?!
     {
@@ -61,139 +60,109 @@
 
 }
 
-
-#pragma mark - Refinement
-/*FIND INDEXES FOR NEXT MOVE
- - CAN'T GO ACROSS EDGE OF BOARD
- - CAN'T CHOOSE A TILE ON ITSELF
- - CAN'T CHOOSE A USERS TILE (FOR NOW)
- */
--(NSMutableArray*)findAllAvailableIndexesInGrid:(NSMutableArray*)gridArrayInit
-{
-    NSMutableArray* allIndexes = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < [pieces count]; i++)
-    {
-        int anIndex = [[pieces objectAtIndex:i] integerValue];
-        
-        NSMutableArray* crossIndex = [[NSMutableArray alloc] initWithArray:[self findCrossIndexes:anIndex]];
-        
-        NSMutableIndexSet* edgeCases = [[NSMutableIndexSet alloc] initWithIndexSet:[self checkEdgeCases:anIndex]];
-        
-//        for (int j = 0; j < [edgeCases count]; j++)
-//        {
-//            //remove options of travel based off edge cases
-//            [crossIndex removeObjectAtIndex:[[edgeCases objectAtIndex:j] integerValue]];
-//        }
-        
-        [crossIndex removeObjectsAtIndexes:edgeCases];
-        
-        [allIndexes addObjectsFromArray:crossIndex];
-    }
-    
-    allIndexes = [self checkPotentialIndexsForAlreadyTaken:allIndexes];
-    allIndexes = [self checkAllIndexes:allIndexes againstUserIndexes:playerPieces];
-    
-    return allIndexes;
-}
-
-//FIND INDEXES FOR INDEXES FOR CROSS TILES
--(NSMutableArray*)findCrossIndexes:(int)anIndex
-{
-    NSMutableArray* crossIndexes = [[NSMutableArray alloc] init];
-    
-    int rightIndex = anIndex + 1;
-    [crossIndexes addObject:[NSNumber numberWithInteger:rightIndex]];
-    
-    int leftIndex = anIndex - 1;
-    [crossIndexes addObject:[NSNumber numberWithInteger:leftIndex]];
-    
-    int topIndex = anIndex - [theGridView getGridSize].width;
-    [crossIndexes addObject:[NSNumber numberWithInteger:topIndex]];
-    
-    int botIndex = anIndex + [theGridView getGridSize].width;
-    [crossIndexes addObject:[NSNumber numberWithInteger:botIndex]];
-    
-    return crossIndexes;
-
-}
-
-//DETERMINE IF AN INDEX IS AN EDGE CASE SO THAT ITS NEXT MOVE IS LIMITED TO STAY INSIDE BOARD
--(NSMutableIndexSet*)checkEdgeCases:(int)indexInit
-{
-    NSMutableIndexSet* edgeCases = [[NSMutableIndexSet alloc] init];
-    
-    //for the right/left edge case
-    if (((indexInit + 1) % (int)[theGridView getGridSize].width) == 0) //right
-    {
-        [edgeCases addIndex:0];
-    }
-    else if((indexInit % (int)[theGridView getGridSize].width ) == 0) //Left
-    {
-        [edgeCases addIndex:1];
-    }
-    
-    if(indexInit < [theGridView getGridSize].width) //Top
-    {
-        [edgeCases addIndex:2];
-    }
-    else if(indexInit >= [theGridView getGridSize].width*([theGridView getGridSize].height-1)) //Bottom
-    {
-        [edgeCases addIndex:3];
-    }
-    
-    return edgeCases;
-}
-
-//REMOVE OPTIONAL INDEXES FOR THOSE ALREADY TAKEN BY HAL
--(NSMutableArray*)checkPotentialIndexsForAlreadyTaken:(NSMutableArray*)potentialIndexes
-{
-    NSMutableIndexSet* indexesToDelete = [[NSMutableIndexSet alloc] init];
-    
-    for (int i = 0; i < [potentialIndexes count]; i ++)
-    {
-        for (int j = 0; j < [pieces count]; j++)
-        {
-            if ([pieces objectAtIndex:j] == [potentialIndexes objectAtIndex:i])
-            {
-                [indexesToDelete addIndex:i];
-            }
-        }
-    }
-    
-    [potentialIndexes removeObjectsAtIndexes:indexesToDelete];
-    return potentialIndexes;
-}
-
--(NSMutableArray*)checkAllIndexes:(NSMutableArray*)potentialIndexes againstUserIndexes:(NSMutableArray*)userIndexes
-{
-    NSMutableIndexSet* indexesToDelete = [[NSMutableIndexSet alloc] init];
-    
-    for (int i = 0; i < [potentialIndexes count]; i ++)
-    {
-        for (int j = 0; j < [userIndexes count]; j++)
-        {
-            if ([userIndexes objectAtIndex:j] == [potentialIndexes objectAtIndex:i])
-            {
-                [indexesToDelete addIndex:i];
-            }
-        }
-    }
-    
-    [potentialIndexes removeObjectsAtIndexes:indexesToDelete];
-    return potentialIndexes;
-}
-
 -(NSMutableArray*)getPieces
 {
     return pieces;
 }
 
+#pragma mark - Strategy
 /*
  FUTURE STRATEGY
  - USER TACTIC DETECTION (TERRITORY GRAB OR LONGEST ROAD)
  - SHORTEST DISTANCE TO TILE
  -
  */
+-(void)observeUser
+{
+    NSMutableArray* columnCountArray = [[NSMutableArray alloc] init];
+    NSMutableArray* indexArray = [[NSMutableArray alloc] init];
+    
+    struct colDat {
+        CGFloat count;
+        CGFloat index;
+    };
+    typedef struct colDat colDat;
+    
+    //look at how many are in each colum
+    for (int i = 0; i < [theGridView getGridSize].width; i++)
+    {
+        int count = 0;
+        
+        //grab a column, count how many in each column
+        for (int j = 0; j <[theGridView getGridSize].height; j++)
+        {
+            int anIndex = i + j*[theGridView getGridSize].width;
+            Tile* aTile = [[theGridView getTileArray] objectAtIndex:anIndex];
+            
+            if ([aTile getAffiliation] == 1)
+            {
+                count = count + 1;
+            }
+        }
+        
+        [columnCountArray addObject:[NSNumber numberWithInteger:count]];
+        [indexArray addObject:[NSNumber numberWithInteger:i]];
+    }
+    
+    NSMutableArray* orderedArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [columnCountArray count]; i++)
+    {
+        double maxVal = [[columnCountArray objectAtIndex:0] doubleValue];
+        
+        for (id obj in columnCountArray)
+        {
+            double aVal = [obj doubleValue];
+            
+            
+            if ([orderedArray count] > 0)
+            {
+                if (aVal >= maxVal && aVal < [[orderedArray objectAtIndex:i -1] doubleValue])
+                {
+                    maxVal = aVal;
+                }
+            }
+            
+            else
+            {
+                if (aVal > maxVal)
+                {
+                    maxVal = aVal;
+                }
+            }
+        }
+        
+        [orderedArray addObject:[NSNumber numberWithInteger:maxVal]];
+    }
+
+//    for (int i = 0; i < [orderedArray count]; i++)
+//    {
+//        <#statements#>
+//    }
+    double maxCount = [self findMaxValInArray:columnCountArray];
+    
+ 
+    //not only the most in a column, but also where the fartherst point is
+    
+    //determine which side the user is playing
+    //determine if they are linearly attacking
+}
+
+-(double)findMaxValInArray:(NSMutableArray*)arrayInit
+{
+    double maxVal = [[arrayInit objectAtIndex:0] doubleValue];
+    
+    for (id obj in arrayInit) {
+        double aVal = [obj doubleValue];
+        
+        if (aVal > maxVal){
+            maxVal = aVal;
+        }
+    }
+    
+    return maxVal;
+}
+
+
 
 @end

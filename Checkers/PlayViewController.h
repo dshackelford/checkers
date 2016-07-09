@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Grid.h"
 #import "Tile.h"
-#import "ScoreBoard.h"
-#import "Inventory.h"
-
+#import "Peon.h"
 #import "TheGridView.h"
 #import "TheScoreboardView.h"
 #import "Hal.h"
@@ -21,28 +18,28 @@
     CGSize screenSize;
 
     UITapGestureRecognizer* singleTap;
-
-    Grid* theGrid;
-    ScoreBoard* theScoreBoard;
-    Inventory* userInven;
-    Inventory* compInven;
     
     TheGridView* gridView;
     TheScoreboardView* scoreboardView;
     
     NSMutableArray* tileArray;
-    
     NSMutableArray* userPieces;
+    NSMutableArray* halPieces;
+    NSMutableArray* userEndzone;
+    NSMutableArray* halEndzone;
+    
+    NSMutableDictionary* theFieldDictionary;
     
     IBOutlet UIButton* homeButton;
     IBOutlet UIButton* helpButton;
     IBOutlet UIButton* settingsButton;
     
     Hal* hal;
-
 }
 
 
 -(void)didSingleTap:(UITapGestureRecognizer*)aSingleTap;
 
+-(NSMutableArray*)getTileArrayOfAffiliation:(int)affiliationInit;
+-(NSMutableDictionary*)getCurrentFieldDictionary;
 @end
