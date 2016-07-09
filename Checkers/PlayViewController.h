@@ -35,6 +35,8 @@
     IBOutlet UIButton* settingsButton;
     
     Hal* hal;
+    
+    BOOL hilighted;
 }
 
 

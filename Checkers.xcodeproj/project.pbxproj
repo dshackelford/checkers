@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		690481F81D30C434009997C5 /* Hal+Refinement.m in Sources */ = {isa = PBXBuildFile; fileRef = 690481F71D30C434009997C5 /* Hal+Refinement.m */; };
-		690481FD1D30C5E7009997C5 /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 690481FC1D30C5E7009997C5 /* ScoreTile.m */; };
 		6914CFF51D23767600185EC9 /* TheGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6914CFF41D23767600185EC9 /* TheGridView.xib */; };
 		6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914CFF61D23768A00185EC9 /* TheGridView.m */; };
 		692168441D11177A00F9910C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168431D11177A00F9910C /* main.m */; };
@@ -19,6 +18,7 @@
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
 		694C7F101D2E260E007DBF41 /* Peon.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C7F0F1D2E260E007DBF41 /* Peon.m */; };
+		698B73891D3175170066513B /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B73881D3175170066513B /* ScoreTile.m */; };
 		69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */; };
 		69A7F5D81D28268B00F1F69D /* TheScoreboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */; };
 		69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */; };
@@ -52,8 +52,6 @@
 /* Begin PBXFileReference section */
 		690481F71D30C434009997C5 /* Hal+Refinement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Hal+Refinement.m"; sourceTree = "<group>"; };
 		690481F91D30C43B009997C5 /* Hal+Refinement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hal+Refinement.h"; sourceTree = "<group>"; };
-		690481FB1D30C5E7009997C5 /* ScoreTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreTile.h; path = ../../../../../.Trash/ScoreTile.h; sourceTree = "<group>"; };
-		690481FC1D30C5E7009997C5 /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreTile.m; path = ../../../../../.Trash/ScoreTile.m; sourceTree = "<group>"; };
 		6914CFF41D23767600185EC9 /* TheGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheGridView.xib; sourceTree = "<group>"; };
 		6914CFF61D23768A00185EC9 /* TheGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheGridView.m; sourceTree = "<group>"; };
 		6914CFF81D23769000185EC9 /* TheGridView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheGridView.h; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		694C7F0F1D2E260E007DBF41 /* Peon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Peon.m; sourceTree = "<group>"; };
 		694C7F111D2E2614007DBF41 /* Peon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Peon.h; sourceTree = "<group>"; };
+		698B73881D3175170066513B /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
+		698B738A1D31751D0066513B /* ScoreTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreTile.h; sourceTree = "<group>"; };
 		69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheScoreboardView.xib; sourceTree = "<group>"; };
 		69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheScoreboardView.m; sourceTree = "<group>"; };
 		69A7F5D91D28269300F1F69D /* TheScoreboardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheScoreboardView.h; sourceTree = "<group>"; };
@@ -223,10 +223,10 @@
 			children = (
 				69D15C801D18FC87007DA6AA /* Tile.h */,
 				69D15C7E1D18FC82007DA6AA /* Tile.m */,
-				690481FB1D30C5E7009997C5 /* ScoreTile.h */,
-				690481FC1D30C5E7009997C5 /* ScoreTile.m */,
 				694C7F111D2E2614007DBF41 /* Peon.h */,
 				694C7F0F1D2E260E007DBF41 /* Peon.m */,
+				698B738A1D31751D0066513B /* ScoreTile.h */,
+				698B73881D3175170066513B /* ScoreTile.m */,
 				690481FA1D30C442009997C5 /* Hal */,
 			);
 			name = Board;
@@ -375,7 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				690481FD1D30C5E7009997C5 /* ScoreTile.m in Sources */,
+				698B73891D3175170066513B /* ScoreTile.m in Sources */,
 				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
 				694C7F101D2E260E007DBF41 /* Peon.m in Sources */,
 				6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */,

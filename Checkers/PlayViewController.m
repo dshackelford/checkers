@@ -37,6 +37,8 @@
     [self setUpView]; //found in category
     
     theFieldDictionary = [self getCurrentFieldDictionary];
+    
+    hilighted = NO;
 }
 
 
@@ -64,6 +66,7 @@
     {
         Tile* aTile = [[gridView getTileArray] objectAtIndex:i];
         
+        //DETERMINING WHERE THE TOUCH IS IN THE GRID
         CGRect arect = [aTile getRect];
         CGRect gridRect = gridView.frame;
         
@@ -72,30 +75,35 @@
         
         if(CGRectContainsPoint(arect, touchPoint) )
         {
-            
-            //ADD A USER PIECE TO GRID
-//            [self addAPieceOfSize:[gridView getGridTileSize] AtIndex:i andLineWidth:3 andAffiliation:1];
-            
-            userPieces = [theFieldDictionary objectForKey:@"userPieces"];
-            
-            [aTile highlight];
-            
-            
-            //check legaility of move
-            if ([self checkrules:i])
+            //CHECK TO SEE IF THE INDEX MATCHES ONE OF THE USERS PIECES FOR HIGLIGHTING
+            if (hilighted == NO)
             {
-                NSLog(@"Touch Index: %d",i);
-                [self.view removeGestureRecognizer:singleTap];
+                hilighted = YES;
+                //place a hilight on the the selected piece
+                [aTile highlight];
                 
+                //check to see if that's within the rules!
+                //what if user taps the same hilighted square to un-hilight it?
                 
-                //tell hal to move
-                [hal moveAgainstUser:[self getCurrentFieldDictionary]];
             }
             else
             {
+                hilighted = NO;
+                //remove the hilight and the piece on the tile
+                //place a piece on the newly selected index
+                [self addAPieceOfSize:[gridView getGridTileSize] AtIndex:i andLineWidth:3 andAffiliation:1];
                 
+                //disable the users touch interaction
+                NSLog(@"Touch Index: %d",i);
+                [self.view removeGestureRecognizer:singleTap];
+                
+                //tell hal to move
+                [hal moveAgainstUser:[self getCurrentFieldDictionary]];
+                
+                userPieces = [theFieldDictionary objectForKey:@"userPieces"];
+                
+                //we'll also need to check the rules at some point!!
             }
-            
             break;
         }
     }

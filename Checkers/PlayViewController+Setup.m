@@ -37,7 +37,7 @@
     [self.view addSubview:gridView];
     
     //MAKE GRID OF SOME SIZE (WIDTH X HEIGHT)
-    [gridView drawGridOfSize:CGSizeMake(8,24)];
+    [gridView drawGridOfSize:CGSizeMake(9,24)];
 }
 
 
