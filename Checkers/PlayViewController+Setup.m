@@ -24,7 +24,7 @@
     
     [self addPieces];
     
-    //load HAL into gameplay
+    //LOAD HAL INTO GAMEPLAY
     hal = [[Hal alloc] initWithGrid:gridView andFirstPieceIndex:[tileArray count] - [gridView getGridSize].width/2];
 }
 
@@ -43,12 +43,10 @@
 
 -(void)addPieces
 {
-    CGSize squareSize = [gridView getGridTileSize];
-    int lineWidth = 3;
-    
     for (int i = [gridView getGridSize].width; i < 2*[gridView getGridSize].width;i++ )
     {
-        [self addAPieceOfSize:squareSize AtIndex:i andLineWidth:lineWidth andAffiliation:1];
+        [[tileArray objectAtIndex:i] setAffiliation:1];
+        [userPieces addObject:[NSNumber numberWithInteger:i]];
     }
     
     int end = [gridView getGridSize].width*[gridView getGridSize].height - [gridView getGridSize].width;
@@ -56,31 +54,10 @@
     
     for (int i = start; i < end; i++)
     {
-        [self addAPieceOfSize:squareSize AtIndex:i andLineWidth:lineWidth andAffiliation:2];
-    }
-    
-}
-
--(void)addAPieceOfSize:(CGSize)squareSizeInit AtIndex:(int)i andLineWidth:(int)lineWidth andAffiliation:(int)affiliationInit
-{
-    //the row that the piece will be placed on (the ones place is the only thing that maters 1/width)
-    int y = i/[gridView getGridSize].width;
-    
-    //the column that the piece will be placed
-    int x = i % (int)[gridView getGridSize].width;
-    
-    CGPoint aPoint = CGPointMake(x*(squareSizeInit.width + lineWidth), y*(squareSizeInit.height + lineWidth));
-    
-    Peon* aPeon  = [[Peon alloc] initWithSize:squareSizeInit atPoint:aPoint LineWidth:lineWidth Affiliation:affiliationInit inView:gridView];
-    
-    if(affiliationInit == 1)
-    {
-        [userPieces addObject:[NSNumber numberWithInteger:i]];
-    }
-    else
-    {
+        [[tileArray objectAtIndex:i] setAffiliation:2];
         [halPieces addObject:[NSNumber numberWithInteger:i]];
     }
+    
 }
 
 -(void)addEndZones

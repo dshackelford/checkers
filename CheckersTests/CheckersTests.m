@@ -54,6 +54,16 @@
     {
        NSLog(@"A isnt divisible by B");
     }
+    
+    
+//    for (int i = [gridView getGridSize].width; i < 2*[gridView getGridSize].width;i++ )
+//    {
+//    //the row that the piece will be placed on (the ones place is the only thing that maters 1/width)
+//    int y = i/[gridView getGridSize].width;
+//    
+//    //the column that the piece will be placed
+//    int x = i % (int)[gridView getGridSize].width;
+//    }
 
 }
 

@@ -26,21 +26,16 @@
     
     halEndzone = [[NSMutableArray alloc] init];
     
-//    [pieces addObject:[NSNumber numberWithInteger:pieceIndexInit]];
-    
     return self;
 }
 
 -(void)moveAgainstUser:(NSMutableDictionary*)fieldDictionaryInit
 {
-    
+    //GET HAL THE CURRENT LAYOUT OF THE BOARD
     playerPieces = [fieldDictionaryInit objectForKey:@"userPieces"];
     pieces = [fieldDictionaryInit objectForKey:@"halPieces"];
     halEndzone = [fieldDictionaryInit objectForKey:@"halEndzone"];
     
-    //ask for what pieces are already played
-    NSMutableArray* currentGridLayout = [[NSMutableArray alloc] initWithArray:[theGridView getTileArray]];
-
     NSMutableArray* optionalIndexes = [self findAllAvailableIndexes];
     
 //    [self observeUser];
@@ -139,7 +134,7 @@
 //    {
 //        <#statements#>
 //    }
-    double maxCount = [self findMaxValInArray:columnCountArray];
+//    double maxCount = [self findMaxValInArray:columnCountArray];
     
  
     //not only the most in a column, but also where the fartherst point is

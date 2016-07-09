@@ -22,54 +22,28 @@
     lineWidth = lineWidthInit;
     affiliation = affiliationInit;
     
-    [self drawTileToView];
+    [self drawTile];
     
     return self;
 }
 
--(void)drawTileToView
+
+-(void)drawTile
 {
+
     //start the rect at 0,0 to draw all of it within the current context rect
     UIBezierPath* tilePath = [UIBezierPath bezierPathWithRect:CGRectMake(lineWidth , lineWidth, size.width, size.height)];
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width + 3*lineWidth, size.height + 3*lineWidth), NO, 0.0);
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
-    
-    if (affiliation == 11)
-    {
-        CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
-    }
-    else if(affiliation == 22)
-    {
-        CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
-    }
-    
-    tilePath.lineWidth = lineWidth;
-    
-    [tilePath stroke];
-    [tilePath fill];
-    
-    UIImage *bezierImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    //make the image view from the path drawn on the context
-     bezierImageView = [[UIImageView alloc]initWithImage:bezierImage];
-    
-    //the center is offset to accomodate the actual origin which will be used later for touch detection
-    bezierImageView.center = CGPointMake(origin.x + size.width/2 + lineWidth,origin.y + size.height/2 + lineWidth);
-    
-    [gridView addSubview:bezierImageView];
+    [self drawBezierToView:tilePath];
 }
 
--(void)placePiece
+-(void)drawCircle
 {
+    UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(lineWidth, lineWidth, size.width, size.height)];
     
+    [self drawBezierToView:circle];
 }
+
 
 -(void)highlight
 {
@@ -89,7 +63,6 @@
     [tilePath setLineDash:dashes count:2 phase:0];
     [tilePath stroke];
     
-    [tilePath stroke];
         
     UIImage *bezierImage = UIGraphicsGetImageFromCurrentImageContext();
         
@@ -103,14 +76,63 @@
         
     [gridView addSubview:bezierImageView];
 }
+
+
+-(void)drawBezierToView:(UIBezierPath*)aPath
+{
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width + 3*lineWidth, size.height + 3*lineWidth), NO, 0.0);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
+    
+    if (affiliation == 11 || affiliation == 1)//USER'S COLOR
+    {
+        CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+    }
+    else if(affiliation == 22 || affiliation == 2) //HAL'S COLOR
+    {
+        CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+    }
+    else if (affiliation == 0) //NO PIECE IS THERE (BLANK TILE
+    {
+        CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
+    }
+    
+    aPath.lineWidth = lineWidth;
+    
+    [aPath stroke];
+    [aPath fill];
+    
+    UIImage *bezierImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    //make the image view from the path drawn on the context
+    bezierImageView = [[UIImageView alloc]initWithImage:bezierImage];
+    
+    //the center is offset to accomodate the actual origin which will be used later for touch detection
+    bezierImageView.center = CGPointMake(origin.x + size.width/2 + lineWidth,origin.y + size.height/2 + lineWidth);
+    
+    [gridView addSubview:bezierImageView];
+}
     
 
 #pragma Setters & Getters
 -(void)setAffiliation:(double)affiliationInit
 {
     affiliation = affiliationInit;
-    [bezierImageView removeFromSuperview];
-    [self drawTileToView];
+    if (affiliation == 1 || affiliation == 2) //draw a circle
+    {
+        [self drawCircle];
+    }
+    else //draw a square
+    {
+        [bezierImageView removeFromSuperview];
+        [self drawTile];
+        
+    }
 }
 
 -(CGSize)getSize

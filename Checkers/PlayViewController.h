@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Tile.h"
-#import "Peon.h"
 #import "TheGridView.h"
 #import "TheScoreboardView.h"
 #import "Hal.h"
@@ -36,7 +35,8 @@
     
     Hal* hal;
     
-    BOOL hilighted;
+    BOOL highlighted;
+    int indexOfHighlighted;
 }
 
 

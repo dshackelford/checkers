@@ -9,14 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ViewMaster.h"
 #import "Tile.h"
-#import "Peon.h"
 
 @interface TheGridView : ViewMaster
 {
     NSMutableArray* arrayOfTiles;
     CGSize gridSize;
     CGSize tileSize;
-    
 }
 
 -(void)drawGridOfSize:(CGSize)sizeInit;

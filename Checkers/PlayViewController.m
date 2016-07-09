@@ -38,7 +38,7 @@
     
     theFieldDictionary = [self getCurrentFieldDictionary];
     
-    hilighted = NO;
+    highlighted = NO;
 }
 
 
@@ -51,7 +51,9 @@
     [scoreboardView setHalScore:[[hal getPieces] count]];
     
     int index = [notification.object integerValue];
-    [self addAPieceOfSize:[gridView getGridTileSize] AtIndex:index andLineWidth:3 andAffiliation:2];
+    Tile* aTile = [[gridView getTileArray] objectAtIndex:index];
+    [aTile setAffiliation:2];
+    [halPieces addObject:[NSNumber numberWithInteger:index]];
 }
 
 #pragma mark - Interface
@@ -75,29 +77,42 @@
         
         if(CGRectContainsPoint(arect, touchPoint) )
         {
+            NSLog(@"Touch Index: %d",i);
+            
             //CHECK TO SEE IF THE INDEX MATCHES ONE OF THE USERS PIECES FOR HIGLIGHTING
-            if (hilighted == NO)
+            if (highlighted == NO)
             {
-                hilighted = YES;
+                highlighted = YES;
+                
                 //place a hilight on the the selected piece
                 [aTile highlight];
+                
+                indexOfHighlighted = i;
                 
                 //check to see if that's within the rules!
                 //what if user taps the same hilighted square to un-hilight it?
                 
             }
+            else if(highlighted == YES && i == indexOfHighlighted)//tile was already hilighted
+            {
+                //hilighted index == the current index
+                [aTile setAffiliation:0];
+                
+                //reset the index;
+            }
             else
             {
-                hilighted = NO;
+                highlighted = NO;
+                
                 //remove the hilight and the piece on the tile
+                
                 //place a piece on the newly selected index
-                [self addAPieceOfSize:[gridView getGridTileSize] AtIndex:i andLineWidth:3 andAffiliation:1];
+                [aTile setAffiliation:1];
                 
                 //disable the users touch interaction
-                NSLog(@"Touch Index: %d",i);
                 [self.view removeGestureRecognizer:singleTap];
                 
-                //tell hal to move
+                //tell hal to move with current field layout
                 [hal moveAgainstUser:[self getCurrentFieldDictionary]];
                 
                 userPieces = [theFieldDictionary objectForKey:@"userPieces"];
@@ -133,7 +148,7 @@
     }
     
     //for testing purposes, this will definitely change in the future
-    return YES;
+    return fair;
     
 }
 

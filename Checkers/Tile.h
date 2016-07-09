@@ -6,7 +6,6 @@
 //  Copyright © 2016 Dylan Shackelford. All rights reserved.
 //
 
-//#import "Board.h"
 #import "UIKit/UIKit.h"
 
 @interface Tile : NSObject
@@ -23,14 +22,15 @@
 }
 
 -(id)initWithSize:(CGSize)sizeInit atPoint:(CGPoint)pointInit LineWidth:(double)lineWidthInit Affiliation:(int)affiliationInit inView:(UIView*)viewInit;
--(void)drawTileToView;
--(void)fillTile;
--(void)drawCircle;
--(double)getAffiliation;
--(void)setAffiliation:(double)affiliationInit;
 
+#pragma mark - Drawing
+-(void)drawTile;
+-(void)drawCircle;
 -(void)highlight;
 
+#pragma Setters & Getters
+-(int)getAffiliation;
+-(void)setAffiliation:(double)affiliationInit;
 
 -(CGSize)getSize;
 -(CGPoint)getOrigin;

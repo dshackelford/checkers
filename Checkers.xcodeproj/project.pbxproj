@@ -17,7 +17,6 @@
 		692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692168501D11177A00F9910C /* LaunchScreen.storyboard */; };
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
-		694C7F101D2E260E007DBF41 /* Peon.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C7F0F1D2E260E007DBF41 /* Peon.m */; };
 		698B73891D3175170066513B /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B73881D3175170066513B /* ScoreTile.m */; };
 		69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */; };
 		69A7F5D81D28268B00F1F69D /* TheScoreboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */; };
@@ -69,8 +68,6 @@
 		692168631D11177A00F9910C /* CheckersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168671D11177A00F9910C /* CheckersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckersUITests.m; sourceTree = "<group>"; };
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		694C7F0F1D2E260E007DBF41 /* Peon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Peon.m; sourceTree = "<group>"; };
-		694C7F111D2E2614007DBF41 /* Peon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Peon.h; sourceTree = "<group>"; };
 		698B73881D3175170066513B /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
 		698B738A1D31751D0066513B /* ScoreTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreTile.h; sourceTree = "<group>"; };
 		69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheScoreboardView.xib; sourceTree = "<group>"; };
@@ -223,8 +220,6 @@
 			children = (
 				69D15C801D18FC87007DA6AA /* Tile.h */,
 				69D15C7E1D18FC82007DA6AA /* Tile.m */,
-				694C7F111D2E2614007DBF41 /* Peon.h */,
-				694C7F0F1D2E260E007DBF41 /* Peon.m */,
 				698B738A1D31751D0066513B /* ScoreTile.h */,
 				698B73881D3175170066513B /* ScoreTile.m */,
 				690481FA1D30C442009997C5 /* Hal */,
@@ -377,7 +372,6 @@
 			files = (
 				698B73891D3175170066513B /* ScoreTile.m in Sources */,
 				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
-				694C7F101D2E260E007DBF41 /* Peon.m in Sources */,
 				6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */,
 				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
 				69C9B4C61D279E4900089C56 /* ViewMaster.m in Sources */,

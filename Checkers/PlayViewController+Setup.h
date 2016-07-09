@@ -14,5 +14,4 @@
 }
 
 -(void)setUpView;
--(void)addAPieceOfSize:(CGSize)squareSizeInit AtIndex:(int)i andLineWidth:(int)lineWidth andAffiliation:(int)affiliationInit;
 @end
