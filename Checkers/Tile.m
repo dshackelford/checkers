@@ -120,6 +120,10 @@
     
 
 #pragma Setters & Getters
+-(void)removeHighlight
+{
+    [bezierImageView removeFromSuperview];
+}
 -(void)setAffiliation:(double)affiliationInit
 {
     affiliation = affiliationInit;

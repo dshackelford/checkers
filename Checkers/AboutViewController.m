@@ -13,7 +13,8 @@
 
 -(void)viewDidLoad
 {
-    
+    [titleLabel setFont:[UIFont systemFontOfSize:20]];
+    [titleLabel setText:@"ABOUT"];
 }
 
 @end

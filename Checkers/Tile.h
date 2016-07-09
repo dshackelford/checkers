@@ -29,6 +29,7 @@
 -(void)highlight;
 
 #pragma Setters & Getters
+-(void)removeHighlight;
 -(int)getAffiliation;
 -(void)setAffiliation:(double)affiliationInit;
 

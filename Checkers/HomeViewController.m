@@ -13,6 +13,34 @@
 
 -(void)viewDidLoad
 {
+    NSLog(@"HomeDirectory: %@",NSHomeDirectory());
+    
+    if ([AppUtilities doesFileExistAtPath:[AppUtilities getPathToUserInfoFile]] == NO)
+    {
+        NSFileManager* appInfo = [NSFileManager defaultManager];
+        
+        [appInfo createFileAtPath:[AppUtilities getPathToUserInfoFile] contents:nil attributes:nil];
+        
+        //ADDING TO THE DICTIONARY SHOULD HAPPEN IN THE SETTINGS
+        NSArray* keys=@[@"Username",@"UserColor",@"DifficultySetting"];
+        
+        NSArray* objects=@[@"Dshack",@"Blue",@"Easy"];
+        
+        NSMutableDictionary* myDictionary =[[NSMutableDictionary alloc] initWithObjects:objects forKeys:keys];
+        
+        [myDictionary writeToFile:[AppUtilities getPathToUserInfoFile] atomically:YES ];
+    }
+    else //DIFFICULTY SETTING HAS TO BE ESTABLISHED IN HOMEVIEW BECUASE IT HAS TO BE READY FOR SETTINGS IF THE GAME IS NOT PLAYED IMMEDIATELY.
+    {
+        NSDictionary* myDictionary = [NSDictionary dictionaryWithContentsOfFile:[AppUtilities getPathToUserInfoFile]];
+        NSLog(@"%@",myDictionary);
+        
+        if (!([myDictionary objectForKey:@"Username"] == nil))
+        {
+            NSString* aSTring = [NSString stringWithFormat:@"%@",(NSString*)[myDictionary objectForKey:@"Username"]];
+            [usernameLabel setText:aSTring];
+        }
+    }
     
     screenSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
     
@@ -21,9 +49,12 @@
         NSLog(@"This is iPhone");
     }
     
-//    [self addTitleInView:self.view];
     [self addBackGroundDesignInView:self.view];
-//    [self addButtonsInView:self.view];
+    
+    [helpButton setTitle:@"INSTRUCTIONS" forState:UIControlStateNormal];
+    [titleButton setTitle:@"TERRITORY" forState:UIControlStateNormal];
+    titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:50];
+    [titleButton.titleLabel setTextColor:[UIColor blackColor]];
     
 }
 

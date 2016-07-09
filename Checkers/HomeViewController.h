@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayViewController.h"
+#import "AppUtilities.h"
 
 @interface HomeViewController : UIViewController
 {
@@ -17,6 +18,8 @@
     IBOutlet UIButton* helpButton;
     
     IBOutlet UILabel* atitleLabel;
+    IBOutlet UIButton* titleButton;
+    IBOutlet UILabel* usernameLabel;
     
     CGSize screenSize;
 }

@@ -7,10 +7,16 @@
 //
 
 #import "UIKit/UIKit.h"
+#import "TextInputCell.h"
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
+    IBOutlet UILabel* titleLabel;
     
+    NSArray* tableData;
+    NSArray* tableDetailData;
 }
+
+@property (nonatomic,weak) IBOutlet UITableView* prefTableView;
 
 @end

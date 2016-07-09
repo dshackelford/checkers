@@ -10,7 +10,7 @@
 
 @interface AboutViewController : UIViewController
 {
-    
+    IBOutlet UILabel* titleLabel;
 }
 
 @end

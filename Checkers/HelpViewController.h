@@ -10,7 +10,7 @@
 
 @interface HelpViewController : UIViewController
 {
-    
+    IBOutlet UILabel* titleLabel;
 }
 
 @end

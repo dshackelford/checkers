@@ -18,6 +18,11 @@
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
 		698B73891D3175170066513B /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B73881D3175170066513B /* ScoreTile.m */; };
+		698B738D1D3196B30066513B /* AppUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B738C1D3196B30066513B /* AppUtilities.m */; };
+		698B738F1D31A7670066513B /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698B738E1D31A7670066513B /* TableView.xib */; };
+		698B73911D31A7740066513B /* TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B73901D31A7740066513B /* TableView.m */; };
+		698B73941D31AAF80066513B /* TextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698B73931D31AAF80066513B /* TextInputCell.xib */; };
+		698B73961D31ABA40066513B /* TextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B73951D31ABA40066513B /* TextInputCell.m */; };
 		69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */; };
 		69A7F5D81D28268B00F1F69D /* TheScoreboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */; };
 		69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */; };
@@ -70,6 +75,14 @@
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		698B73881D3175170066513B /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
 		698B738A1D31751D0066513B /* ScoreTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreTile.h; sourceTree = "<group>"; };
+		698B738B1D3196AC0066513B /* AppUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUtilities.h; sourceTree = "<group>"; };
+		698B738C1D3196B30066513B /* AppUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtilities.m; sourceTree = "<group>"; };
+		698B738E1D31A7670066513B /* TableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableView.xib; sourceTree = "<group>"; };
+		698B73901D31A7740066513B /* TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableView.m; sourceTree = "<group>"; };
+		698B73921D31A7790066513B /* TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableView.h; sourceTree = "<group>"; };
+		698B73931D31AAF80066513B /* TextInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputCell.xib; sourceTree = "<group>"; };
+		698B73951D31ABA40066513B /* TextInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputCell.m; sourceTree = "<group>"; };
+		698B73971D31ABAA0066513B /* TextInputCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextInputCell.h; sourceTree = "<group>"; };
 		69A7F5D51D28267A00F1F69D /* TheScoreboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheScoreboardView.xib; sourceTree = "<group>"; };
 		69A7F5D71D28268B00F1F69D /* TheScoreboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheScoreboardView.m; sourceTree = "<group>"; };
 		69A7F5D91D28269300F1F69D /* TheScoreboardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheScoreboardView.h; sourceTree = "<group>"; };
@@ -154,9 +167,17 @@
 			children = (
 				692168451D11177A00F9910C /* AppDelegate.h */,
 				692168461D11177A00F9910C /* AppDelegate.m */,
+				698B738B1D3196AC0066513B /* AppUtilities.h */,
+				698B738C1D3196B30066513B /* AppUtilities.m */,
 				69ABFAC11D1BB0F700BE9C68 /* ViewControllers */,
 				69D15C841D18FF06007DA6AA /* Board */,
 				6921684B1D11177A00F9910C /* Main.storyboard */,
+				698B73931D31AAF80066513B /* TextInputCell.xib */,
+				698B73971D31ABAA0066513B /* TextInputCell.h */,
+				698B73951D31ABA40066513B /* TextInputCell.m */,
+				698B738E1D31A7670066513B /* TableView.xib */,
+				698B73901D31A7740066513B /* TableView.m */,
+				698B73921D31A7790066513B /* TableView.h */,
 				6914CFF41D23767600185EC9 /* TheGridView.xib */,
 				6914CFF81D23769000185EC9 /* TheGridView.h */,
 				6914CFF61D23768A00185EC9 /* TheGridView.m */,
@@ -344,8 +365,10 @@
 				692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */,
 				6921684F1D11177A00F9910C /* Assets.xcassets in Resources */,
 				6921684D1D11177A00F9910C /* Main.storyboard in Resources */,
+				698B738F1D31A7670066513B /* TableView.xib in Resources */,
 				69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */,
 				6914CFF51D23767600185EC9 /* TheGridView.xib in Resources */,
+				698B73941D31AAF80066513B /* TextInputCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,11 +394,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				698B73891D3175170066513B /* ScoreTile.m in Sources */,
+				698B73911D31A7740066513B /* TableView.m in Sources */,
 				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
 				6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */,
 				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
+				698B73961D31ABA40066513B /* TextInputCell.m in Sources */,
 				69C9B4C61D279E4900089C56 /* ViewMaster.m in Sources */,
 				69C74D9F1D26144B000AB4B2 /* Hal.m in Sources */,
+				698B738D1D3196B30066513B /* AppUtilities.m in Sources */,
 				69ABFABF1D1BB0EC00BE9C68 /* AboutViewController.m in Sources */,
 				690481F81D30C434009997C5 /* Hal+Refinement.m in Sources */,
 				692168471D11177A00F9910C /* AppDelegate.m in Sources */,

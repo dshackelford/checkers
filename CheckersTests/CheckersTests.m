@@ -55,6 +55,11 @@
        NSLog(@"A isnt divisible by B");
     }
     
+    int d= -1;
+
+    int x = d*5;
+    
+    NSLog(@"%d",x);
     
 //    for (int i = [gridView getGridSize].width; i < 2*[gridView getGridSize].width;i++ )
 //    {

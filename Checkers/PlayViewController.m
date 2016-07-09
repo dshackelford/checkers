@@ -80,75 +80,91 @@
             NSLog(@"Touch Index: %d",i);
             
             //CHECK TO SEE IF THE INDEX MATCHES ONE OF THE USERS PIECES FOR HIGLIGHTING
-            if (highlighted == NO)
+            if (highlighted == NO && [[tileArray objectAtIndex:i] getAffiliation] == 1)
             {
                 highlighted = YES;
-                
-                //place a hilight on the the selected piece
+
                 [aTile highlight];
                 
                 indexOfHighlighted = i;
-                
-                //check to see if that's within the rules!
-                //what if user taps the same hilighted square to un-hilight it?
+            }
+            //TILE HAS ALREADY BEEN HIGHLIGHTED
+            else if(highlighted == YES && [[tileArray objectAtIndex:i] getAffiliation] == 1)
+            {
+                //REMOVE THE HIGHLIGHT JUST PLACED
+                if (i == indexOfHighlighted)
+                {
+                    [aTile removeHighlight];
+                    highlighted = NO;
+                    
+                    //RESET INDEX VALUE
+                    indexOfHighlighted = -1;
+                }
+                //MOVE THE HIGHLIGHT TO ANOTHER PIECE
+                else if([[tileArray objectAtIndex:i] getAffiliation] == 1)
+                {
+                    [[tileArray objectAtIndex:indexOfHighlighted] removeHighlight];
+                    highlighted = YES;
+                    indexOfHighlighted = i;
+                    [aTile highlight];
+                }
                 
             }
-            else if(highlighted == YES && i == indexOfHighlighted)//tile was already hilighted
+            else if(highlighted == YES) //remove selected piece and put new piece to new tile
             {
-                //hilighted index == the current index
-                [aTile setAffiliation:0];
+                //IF THE MOVE IS LEGAL
+                if ([self canUserMovePiece:indexOfHighlighted toThis:i])
+                {
+                    //REMOVE HIGHLIGHTED PIECE
+                    [[tileArray objectAtIndex:indexOfHighlighted] setAffiliation:0];
+                    userPieces = [self removeAnIndex:indexOfHighlighted fromArray:userPieces];
+                    
+                    //PLACE PIECE ON NEW INDEX
+                    [aTile setAffiliation:1];
+                    [userPieces addObject:[NSNumber numberWithInteger:i]];
+                    
+                    //DISABLE USER TOUCH INERACTIONS
+                    [self.view removeGestureRecognizer:singleTap];
+                    
+                    //TELL HAL TO MOVE WITH CURRENT FIELD LAYOUT
+                    [hal moveAgainstUser:[self getCurrentFieldDictionary]];
+                    
+                    userPieces = [theFieldDictionary objectForKey:@"userPieces"];
+                    
+                    highlighted = NO;
+                    indexOfHighlighted = -1;
+                    
+                    //we'll also need to check the rules at some point!!
+                }
+                else
+                {
+                    
+                }
                 
-                //reset the index;
-            }
-            else
-            {
-                highlighted = NO;
-                
-                //remove the hilight and the piece on the tile
-                
-                //place a piece on the newly selected index
-                [aTile setAffiliation:1];
-                
-                //disable the users touch interaction
-                [self.view removeGestureRecognizer:singleTap];
-                
-                //tell hal to move with current field layout
-                [hal moveAgainstUser:[self getCurrentFieldDictionary]];
-                
-                userPieces = [theFieldDictionary objectForKey:@"userPieces"];
-                
-                //we'll also need to check the rules at some point!!
             }
             break;
         }
     }
 }
 
+
 //if this does not pass, then we chill
--(BOOL)checkrules:(int)i
+-(BOOL)canUserMovePiece:(int)highlightedIndex toThis:(int)nextIndex
 {
-    BOOL fair;
+    BOOL ruling;
     
-    if (((i + 1) % (int)[gridView getGridSize].width) == 0)
+    //CAN'T MOVE INTO AN ENDZONE
+    //I DON'T NEED TO WORRY ABOUT MOVING ON TOP OF EACHOTHER BECAUSE THAT GETS PICKED UP BY THE HIGHLIGHTING ACTION OF THE USER (ALSO IM ASSUMING THE USER IS NOT THAT MUCH OF AN IDIOT)
+    if (!([[tileArray objectAtIndex:nextIndex] getAffiliation] == 11))
     {
-        NSLog(@"right edge");
+        ruling = YES;
     }
-    else if((i % (int)[gridView getGridSize].width ) == 0)
+    else
     {
-        NSLog(@"Left Edge");
+        ruling = NO;
     }
-    
-    if(i < [gridView getGridSize].width)
-    {
-        NSLog(@"Top Edge");
-    }
-    else if(i >= [gridView getGridSize].width*([gridView getGridSize].height-1))
-    {
-        NSLog(@"Bootom Edge");
-    }
-    
-    //for testing purposes, this will definitely change in the future
-    return fair;
+
+    return ruling;
     
 }
 
@@ -174,6 +190,27 @@
     }
     
     return aUserEndzone;
+}
+
+-(NSMutableArray*)removeAnIndex:(int)indexInit fromArray:(NSMutableArray*)arrayInit
+{
+    int indexToRemove = -1;
+    
+    for (int i = 0; i < [arrayInit count] ; i++)
+    {
+        if ([[arrayInit objectAtIndex:i] integerValue] == indexInit)
+        {
+            indexToRemove = i;
+            break;
+        }
+    }
+    
+    if (indexToRemove >= 0)
+    {
+        [arrayInit removeObjectAtIndex:indexToRemove];
+    }
+    
+    return arrayInit;
 }
 
 -(NSMutableDictionary*)getCurrentFieldDictionary
