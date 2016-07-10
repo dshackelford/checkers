@@ -9,7 +9,7 @@
 #import "UIKit/UIKit.h"
 #import "TextInputCell.h"
 
-@interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
     IBOutlet UILabel* titleLabel;
     
