@@ -17,8 +17,6 @@
 		692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692168501D11177A00F9910C /* LaunchScreen.storyboard */; };
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
-		6989F5041D32018E006906A3 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 6989F5031D32018E006906A3 /* Preferences.m */; };
-		6989F5061D3202E5006906A3 /* TextFieldElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6989F5051D3202E5006906A3 /* TextFieldElement.m */; };
 		698B73891D3175170066513B /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B73881D3175170066513B /* ScoreTile.m */; };
 		698B738D1D3196B30066513B /* AppUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B738C1D3196B30066513B /* AppUtilities.m */; };
 		698B738F1D31A7670066513B /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698B738E1D31A7670066513B /* TableView.xib */; };
@@ -34,6 +32,8 @@
 		69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0C75F1D151B190006BC1E /* PlayViewController.m */; };
 		69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0C7631D151B9E0006BC1E /* HomeViewController.m */; };
 		69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D15C7E1D18FC82007DA6AA /* Tile.m */; };
+		69D48D0A1D334BA6008D1174 /* PickerInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D48D091D334BA6008D1174 /* PickerInputCell.xib */; };
+		69D48D0C1D334BB1008D1174 /* PickerInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D48D0B1D334BB1008D1174 /* PickerInputCell.m */; };
 		69F8D3911D21AC1B0012F33C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F8D3901D21AC1B0012F33C /* SettingsViewController.m */; };
 		69FC18411D2F69EE00E10C88 /* PlayViewController+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC18401D2F69EE00E10C88 /* PlayViewController+Setup.m */; };
 /* End PBXBuildFile section */
@@ -75,10 +75,6 @@
 		692168631D11177A00F9910C /* CheckersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168671D11177A00F9910C /* CheckersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckersUITests.m; sourceTree = "<group>"; };
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6989F5021D32015D006906A3 /* Preferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
-		6989F5031D32018E006906A3 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
-		6989F5051D3202E5006906A3 /* TextFieldElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldElement.m; sourceTree = "<group>"; };
-		6989F5071D3202EC006906A3 /* TextFieldElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldElement.h; sourceTree = "<group>"; };
 		698B73881D3175170066513B /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
 		698B738A1D31751D0066513B /* ScoreTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreTile.h; sourceTree = "<group>"; };
 		698B738B1D3196AC0066513B /* AppUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUtilities.h; sourceTree = "<group>"; };
@@ -106,6 +102,9 @@
 		69D0C7631D151B9E0006BC1E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		69D15C7E1D18FC82007DA6AA /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
 		69D15C801D18FC87007DA6AA /* Tile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		69D48D091D334BA6008D1174 /* PickerInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerInputCell.xib; sourceTree = "<group>"; };
+		69D48D0B1D334BB1008D1174 /* PickerInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerInputCell.m; sourceTree = "<group>"; };
+		69D48D0D1D334BB6008D1174 /* PickerInputCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickerInputCell.h; sourceTree = "<group>"; };
 		69F8D38F1D21AC1B0012F33C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		69F8D3901D21AC1B0012F33C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		69FC18401D2F69EE00E10C88 /* PlayViewController+Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayViewController+Setup.m"; sourceTree = "<group>"; };
@@ -178,11 +177,12 @@
 				69ABFAC11D1BB0F700BE9C68 /* ViewControllers */,
 				69D15C841D18FF06007DA6AA /* Board */,
 				6921684B1D11177A00F9910C /* Main.storyboard */,
+				69D48D091D334BA6008D1174 /* PickerInputCell.xib */,
+				69D48D0D1D334BB6008D1174 /* PickerInputCell.h */,
+				69D48D0B1D334BB1008D1174 /* PickerInputCell.m */,
 				698B73931D31AAF80066513B /* TextInputCell.xib */,
 				698B73971D31ABAA0066513B /* TextInputCell.h */,
 				698B73951D31ABA40066513B /* TextInputCell.m */,
-				6989F5071D3202EC006906A3 /* TextFieldElement.h */,
-				6989F5051D3202E5006906A3 /* TextFieldElement.m */,
 				698B738E1D31A7670066513B /* TableView.xib */,
 				698B73901D31A7740066513B /* TableView.m */,
 				698B73921D31A7790066513B /* TableView.h */,
@@ -236,8 +236,6 @@
 				69FC18431D2F6FB400E10C88 /* PlayView */,
 				69F8D38F1D21AC1B0012F33C /* SettingsViewController.h */,
 				69F8D3901D21AC1B0012F33C /* SettingsViewController.m */,
-				6989F5021D32015D006906A3 /* Preferences.h */,
-				6989F5031D32018E006906A3 /* Preferences.m */,
 				69ABFABD1D1BB0E400BE9C68 /* HelpViewController.h */,
 				69ABFABB1D1BB0DE00BE9C68 /* HelpViewController.m */,
 				69ABFAC01D1BB0F200BE9C68 /* AboutViewController.h */,
@@ -374,6 +372,7 @@
 			files = (
 				692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */,
 				6921684F1D11177A00F9910C /* Assets.xcassets in Resources */,
+				69D48D0A1D334BA6008D1174 /* PickerInputCell.xib in Resources */,
 				6921684D1D11177A00F9910C /* Main.storyboard in Resources */,
 				698B738F1D31A7670066513B /* TableView.xib in Resources */,
 				69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */,
@@ -408,15 +407,14 @@
 				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
 				6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */,
 				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
-				6989F5041D32018E006906A3 /* Preferences.m in Sources */,
 				698B73961D31ABA40066513B /* TextInputCell.m in Sources */,
 				69C9B4C61D279E4900089C56 /* ViewMaster.m in Sources */,
-				6989F5061D3202E5006906A3 /* TextFieldElement.m in Sources */,
 				69C74D9F1D26144B000AB4B2 /* Hal.m in Sources */,
 				698B738D1D3196B30066513B /* AppUtilities.m in Sources */,
 				69ABFABF1D1BB0EC00BE9C68 /* AboutViewController.m in Sources */,
 				690481F81D30C434009997C5 /* Hal+Refinement.m in Sources */,
 				692168471D11177A00F9910C /* AppDelegate.m in Sources */,
+				69D48D0C1D334BB1008D1174 /* PickerInputCell.m in Sources */,
 				69D0C7641D151B9E0006BC1E /* HomeViewController.m in Sources */,
 				69FC18411D2F69EE00E10C88 /* PlayViewController+Setup.m in Sources */,
 				69D15C7F1D18FC82007DA6AA /* Tile.m in Sources */,

@@ -8,15 +8,18 @@
 
 #import "UIKit/UIKit.h"
 #import "TextInputCell.h"
+#import "PickerInputCell.h"
+#import "AppUtilities.h"
 
-@interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
     IBOutlet UILabel* titleLabel;
+    UITableView* theTableView;
     
     NSArray* tableData;
-    NSArray* tableDetailData;
+    
+    int rowHeight;
 }
 
-@property (nonatomic,weak) IBOutlet UITableView* prefTableView;
 
 @end

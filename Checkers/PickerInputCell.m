@@ -1,16 +1,15 @@
 //
-//  TextInputCell.m
+//  PickerInputCell.m
 //  Checkers
 //
-//  Created by Dylan Shackelford on 7/9/16.
+//  Created by Dylan Shackelford on 7/10/16.
 //  Copyright © 2016 Dylan Shackelford. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "TextInputCell.h"
+#import "PickerInputCell.h"
 
-@implementation TextInputCell
-
+@implementation PickerInputCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -26,10 +25,5 @@
     [super setSelected:selected animated:animated];
     
     // Configure the view for the selected state
-}
-
--(UILabel*)getCellLabel
-{
-    return _cellLabel;
 }
 @end

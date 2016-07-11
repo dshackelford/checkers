@@ -77,13 +77,13 @@
 
 +(void)getObjectsForLevelRestart:(UIView*)container :(UIButton*)placeHolderButton
 {
-    //GRAB DICTIONARY FROM FILE FOR RESTART
-    NSMutableDictionary* aDictionary = [NSMutableDictionary dictionaryWithContentsOfFile:[AppUtilities getPathToLevelObjectsFile]];
-    
-    NSDictionary* baseDictionary = [aDictionary objectForKey:@"Base"];
-    
-    CGPoint basePostion = CGPointMake([[baseDictionary objectForKey:@"x"] doubleValue],[[baseDictionary objectForKey:@"y"] doubleValue]);
+//    //GRAB DICTIONARY FROM FILE FOR RESTART
+//    NSMutableDictionary* aDictionary = [NSMutableDictionary dictionaryWithContentsOfFile:[AppUtilities getPathToLevelObjectsFile]];
 //    
+//    NSDictionary* baseDictionary = [aDictionary objectForKey:@"Base"];
+//    
+//    CGPoint basePostion = CGPointMake([[baseDictionary objectForKey:@"x"] doubleValue],[[baseDictionary objectForKey:@"y"] doubleValue]);
+//
 //    Base* aBase  = [[Base alloc] initRestart:basePostion Container:container Placeholder:placeHolderButton Velocity:CGVectorMake(0, 0)];
 //    
 //    //ITERATE THROUGH DICTIONARY TO GRAB EACH SMALLER DICATIONARY FOR EACH OBJECT

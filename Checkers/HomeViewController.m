@@ -22,9 +22,9 @@
         [appInfo createFileAtPath:[AppUtilities getPathToUserInfoFile] contents:nil attributes:nil];
         
         //ADDING TO THE DICTIONARY SHOULD HAPPEN IN THE SETTINGS
-        NSArray* keys=@[@"Username",@"UserColor",@"DifficultySetting"];
+        NSArray* keys=@[@"UserName",@"UserColor",@"ComputerColor",@"DifficultySetting",@"FieldSize"];
         
-        NSArray* objects=@[@"Dshack",@"Blue",@"Easy"];
+        NSArray* objects=@[@"",@"Blue",@"Red",@"Easy",@""];
         
         NSMutableDictionary* myDictionary =[[NSMutableDictionary alloc] initWithObjects:objects forKeys:keys];
         
@@ -35,9 +35,9 @@
         NSDictionary* myDictionary = [NSDictionary dictionaryWithContentsOfFile:[AppUtilities getPathToUserInfoFile]];
         NSLog(@"%@",myDictionary);
         
-        if (!([myDictionary objectForKey:@"Username"] == nil))
+        if (!([myDictionary objectForKey:@"UserName"] == nil))
         {
-            NSString* aSTring = [NSString stringWithFormat:@"%@",(NSString*)[myDictionary objectForKey:@"Username"]];
+            NSString* aSTring = [NSString stringWithFormat:@"%@",(NSString*)[myDictionary objectForKey:@"UserName"]];
             [usernameLabel setText:aSTring];
         }
     }
