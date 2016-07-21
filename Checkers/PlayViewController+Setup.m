@@ -30,14 +30,14 @@
 
 -(void)addGrid
 {
-    CGSize border = CGSizeMake(60, 70);
+    CGSize border = CGSizeMake(40, 80);
     
     gridView = [[TheGridView alloc] initWithFrame:CGRectMake(border.width, border.height, screenSize.width - 2*border.width, screenSize.height - 2*border.height)];
     
     [self.view addSubview:gridView];
     
     //MAKE GRID OF SOME SIZE (WIDTH X HEIGHT)
-    [gridView drawGridOfSize:CGSizeMake(9,24)];
+    [gridView drawGridOfSize:CGSizeMake(7,15)];
 }
 
 

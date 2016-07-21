@@ -12,28 +12,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KsE-KO-0GP" id="Tee-Ao-n5G">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4g-gr-aPj">
-                        <rect key="frame" x="136" y="0.0" width="184" height="43"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="150" id="nIV-qF-mRg"/>
-                        </constraints>
-                    </pickerView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKp-kQ-Df3">
                         <rect key="frame" x="20" y="14" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4g-gr-aPj">
+                        <rect key="frame" x="136" y="0.0" width="184" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="nIV-qF-mRg"/>
+                        </constraints>
+                    </pickerView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dKp-kQ-Df3" firstAttribute="top" secondItem="Tee-Ao-n5G" secondAttribute="topMargin" constant="6" id="DKe-yz-iza"/>
                     <constraint firstItem="dKp-kQ-Df3" firstAttribute="leading" secondItem="Tee-Ao-n5G" secondAttribute="leadingMargin" id="Nzw-16-VXT"/>
-                    <constraint firstItem="E4g-gr-aPj" firstAttribute="top" secondItem="Tee-Ao-n5G" secondAttribute="topMargin" id="ZYm-ai-Mc5"/>
+                    <constraint firstItem="E4g-gr-aPj" firstAttribute="top" secondItem="Tee-Ao-n5G" secondAttribute="topMargin" constant="-8" id="ZYm-ai-Mc5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="E4g-gr-aPj" secondAttribute="trailing" constant="30" id="mAn-Am-zM2"/>
-                    <constraint firstItem="E4g-gr-aPj" firstAttribute="bottom" secondItem="Tee-Ao-n5G" secondAttribute="bottomMargin" id="mac-8H-s8l"/>
+                    <constraint firstItem="E4g-gr-aPj" firstAttribute="bottom" secondItem="Tee-Ao-n5G" secondAttribute="bottomMargin" constant="-8" id="mac-8H-s8l"/>
                     <constraint firstItem="dKp-kQ-Df3" firstAttribute="bottom" secondItem="Tee-Ao-n5G" secondAttribute="bottomMargin" id="ud3-4O-Gjl"/>
                 </constraints>
             </tableViewCellContentView>

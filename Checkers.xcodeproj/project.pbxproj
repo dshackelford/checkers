@@ -17,6 +17,12 @@
 		692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692168501D11177A00F9910C /* LaunchScreen.storyboard */; };
 		6921685D1D11177A00F9910C /* CheckersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921685C1D11177A00F9910C /* CheckersTests.m */; };
 		692168681D11177A00F9910C /* CheckersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 692168671D11177A00F9910C /* CheckersUITests.m */; };
+		698A88751D337765000A08E1 /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A88731D337765000A08E1 /* history.png */; };
+		698A88761D337765000A08E1 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A88741D337765000A08E1 /* settings.png */; };
+		698A88781D337B0D000A08E1 /* pillar.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A88771D337B0D000A08E1 /* pillar.png */; };
+		698A887A1D33FFA5000A08E1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A88791D33FFA5000A08E1 /* HistoryViewController.m */; };
+		698A887D1D34017B000A08E1 /* TextDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698A887C1D34017B000A08E1 /* TextDisplayCell.xib */; };
+		698A887F1D340189000A08E1 /* TextDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A887E1D340189000A08E1 /* TextDisplayCell.m */; };
 		698B73891D3175170066513B /* ScoreTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B73881D3175170066513B /* ScoreTile.m */; };
 		698B738D1D3196B30066513B /* AppUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B738C1D3196B30066513B /* AppUtilities.m */; };
 		698B738F1D31A7670066513B /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698B738E1D31A7670066513B /* TableView.xib */; };
@@ -75,6 +81,14 @@
 		692168631D11177A00F9910C /* CheckersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		692168671D11177A00F9910C /* CheckersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckersUITests.m; sourceTree = "<group>"; };
 		692168691D11177A00F9910C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		698A88731D337765000A08E1 /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
+		698A88741D337765000A08E1 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		698A88771D337B0D000A08E1 /* pillar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pillar.png; sourceTree = "<group>"; };
+		698A88791D33FFA5000A08E1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		698A887B1D33FFAD000A08E1 /* HistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		698A887C1D34017B000A08E1 /* TextDisplayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextDisplayCell.xib; sourceTree = "<group>"; };
+		698A887E1D340189000A08E1 /* TextDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDisplayCell.m; sourceTree = "<group>"; };
+		698A88801D340191000A08E1 /* TextDisplayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextDisplayCell.h; sourceTree = "<group>"; };
 		698B73881D3175170066513B /* ScoreTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTile.m; sourceTree = "<group>"; };
 		698B738A1D31751D0066513B /* ScoreTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreTile.h; sourceTree = "<group>"; };
 		698B738B1D3196AC0066513B /* AppUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUtilities.h; sourceTree = "<group>"; };
@@ -176,7 +190,9 @@
 				698B738C1D3196B30066513B /* AppUtilities.m */,
 				69ABFAC11D1BB0F700BE9C68 /* ViewControllers */,
 				69D15C841D18FF06007DA6AA /* Board */,
-				6921684B1D11177A00F9910C /* Main.storyboard */,
+				698A887C1D34017B000A08E1 /* TextDisplayCell.xib */,
+				698A88801D340191000A08E1 /* TextDisplayCell.h */,
+				698A887E1D340189000A08E1 /* TextDisplayCell.m */,
 				69D48D091D334BA6008D1174 /* PickerInputCell.xib */,
 				69D48D0D1D334BB6008D1174 /* PickerInputCell.h */,
 				69D48D0B1D334BB1008D1174 /* PickerInputCell.m */,
@@ -205,6 +221,9 @@
 		692168421D11177A00F9910C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				698A88771D337B0D000A08E1 /* pillar.png */,
+				698A88731D337765000A08E1 /* history.png */,
+				698A88741D337765000A08E1 /* settings.png */,
 				692168431D11177A00F9910C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -231,8 +250,11 @@
 		69ABFAC11D1BB0F700BE9C68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6921684B1D11177A00F9910C /* Main.storyboard */,
 				69D0C7621D151B960006BC1E /* HomeViewController.h */,
 				69D0C7631D151B9E0006BC1E /* HomeViewController.m */,
+				698A887B1D33FFAD000A08E1 /* HistoryViewController.h */,
+				698A88791D33FFA5000A08E1 /* HistoryViewController.m */,
 				69FC18431D2F6FB400E10C88 /* PlayView */,
 				69F8D38F1D21AC1B0012F33C /* SettingsViewController.h */,
 				69F8D3901D21AC1B0012F33C /* SettingsViewController.m */,
@@ -334,6 +356,7 @@
 				TargetAttributes = {
 					6921683E1D11177A00F9910C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5C7WP8NCS7;
 					};
 					692168571D11177A00F9910C = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -370,11 +393,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				698A88751D337765000A08E1 /* history.png in Resources */,
 				692168521D11177A00F9910C /* LaunchScreen.storyboard in Resources */,
 				6921684F1D11177A00F9910C /* Assets.xcassets in Resources */,
+				698A887D1D34017B000A08E1 /* TextDisplayCell.xib in Resources */,
 				69D48D0A1D334BA6008D1174 /* PickerInputCell.xib in Resources */,
 				6921684D1D11177A00F9910C /* Main.storyboard in Resources */,
 				698B738F1D31A7670066513B /* TableView.xib in Resources */,
+				698A88761D337765000A08E1 /* settings.png in Resources */,
+				698A88781D337B0D000A08E1 /* pillar.png in Resources */,
 				69A7F5D61D28267A00F1F69D /* TheScoreboardView.xib in Resources */,
 				6914CFF51D23767600185EC9 /* TheGridView.xib in Resources */,
 				698B73941D31AAF80066513B /* TextInputCell.xib in Resources */,
@@ -405,6 +432,8 @@
 				698B73891D3175170066513B /* ScoreTile.m in Sources */,
 				698B73911D31A7740066513B /* TableView.m in Sources */,
 				69D0C7601D151B190006BC1E /* PlayViewController.m in Sources */,
+				698A887A1D33FFA5000A08E1 /* HistoryViewController.m in Sources */,
+				698A887F1D340189000A08E1 /* TextDisplayCell.m in Sources */,
 				6914CFF71D23768A00185EC9 /* TheGridView.m in Sources */,
 				69ABFABC1D1BB0DE00BE9C68 /* HelpViewController.m in Sources */,
 				698B73961D31ABA40066513B /* TextInputCell.m in Sources */,
@@ -561,10 +590,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Checkers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DshackTech.Checkers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -572,10 +604,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Checkers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DshackTech.Checkers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

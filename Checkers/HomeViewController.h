@@ -13,7 +13,7 @@
 @interface HomeViewController : UIViewController
 {
     IBOutlet UIButton* playButton;
-    IBOutlet UIButton* aboutButton;
+    IBOutlet UIButton* historyButton;
     IBOutlet UIButton* settingsButton;
     IBOutlet UIButton* helpButton;
     

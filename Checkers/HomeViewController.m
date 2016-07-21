@@ -35,10 +35,10 @@
         NSDictionary* myDictionary = [NSDictionary dictionaryWithContentsOfFile:[AppUtilities getPathToUserInfoFile]];
         NSLog(@"%@",myDictionary);
         
-        if (!([myDictionary objectForKey:@"UserName"] == nil))
+        if (!([[myDictionary objectForKey:@"UserName"] isEqualToString:@""]))
         {
             NSString* aSTring = [NSString stringWithFormat:@"%@",(NSString*)[myDictionary objectForKey:@"UserName"]];
-            [usernameLabel setText:aSTring];
+            [usernameLabel setText:[NSString stringWithFormat:@"Welcome back %@",aSTring]];
         }
     }
     
@@ -51,10 +51,27 @@
     
     [self addBackGroundDesignInView:self.view];
     
-    [helpButton setTitle:@"INSTRUCTIONS" forState:UIControlStateNormal];
+    [helpButton setTitle:@"?" forState:UIControlStateNormal];
+    helpButton.titleLabel.font = [UIFont systemFontOfSize:35];
+    [helpButton.titleLabel setTextColor:[UIColor blackColor]];//doesn't work
+    
     [titleButton setTitle:@"TERRITORY" forState:UIControlStateNormal];
     titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:50];
-    [titleButton.titleLabel setTextColor:[UIColor blackColor]];
+    [titleButton.titleLabel setTextColor:[UIColor whiteColor]]; //doesn't work (had to set it in storyboard)
+
+    [helpButton setFrame:CGRectMake(helpButton.frame.origin.x, helpButton.frame.origin.y,20, 20)];
+    
+    UIImageView* centerPillarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pillar.png"]];
+    [self.view insertSubview:centerPillarView belowSubview:helpButton];
+    centerPillarView.center = CGPointMake(screenSize.width/2, screenSize.height/2 + 70 + centerPillarView.frame.size.height/2);
+    
+    UIImageView* leftPillarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pillar.png"]];
+    [self.view insertSubview:leftPillarView belowSubview:settingsButton];
+    leftPillarView.center = CGPointMake(screenSize.width/2 - leftPillarView.frame.size.width- 27,screenSize.height/2 + 70 + leftPillarView.frame.size.height/2);
+    
+    UIImageView* rightPillarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pillar.png"]];
+    [self.view insertSubview:rightPillarView belowSubview:historyButton];
+    rightPillarView.center = CGPointMake(screenSize.width/2 + leftPillarView.frame.size.width + 27,screenSize.height/2 + 70 + leftPillarView.frame.size.height/2);
     
 }
 
